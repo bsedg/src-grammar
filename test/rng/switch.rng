@@ -1,0 +1,54 @@
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+   <start>
+      <element name="switch">
+      	       <text/>
+      	       <ref name="condition"/>
+		<element name="block">
+			 <text/>
+			 <oneOrMore>
+				<ref name="case"/>
+			 </oneOrMore>
+			 <optional><text/></optional>
+			 <ref name="default"/>
+		</element>
+		<optional><text/></optional>
+	</element>
+  </start>
+
+  <define name="condition">
+  	  <element name="condition">
+	  	   <optional><text/></optional>
+	  	   <element name="expr">
+		   	    <element name="name">
+			    	     <text/>
+			    </element>
+		   </element>
+		   <optional><text/></optional>
+	  </element>
+  </define>
+
+  <define name="default">
+	  <element name="default">
+	  	   <text/>
+		   <element name="break">
+		   	    <text/>
+		   </element>
+	  </element>
+	  <text/>
+  </define>
+
+  <define name="case">
+  	  <element name="case">
+	  	   <text/>
+		   <element name="expr">
+		   	    <text/>
+		   </element>
+		   <optional><text/></optional>
+		   <element name="break">
+		   	    <text/>
+		   </element>
+		   <text/>
+	  </element>
+  </define>
+</grammar>
+

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<switch>switch<condition>(<expr><name>c</name></expr>)</condition> <block>{
+<case>case <expr>1</expr>:
+    <break>break;</break>
+</case><case>case <expr>2</expr>:
+    <break>break;</break>
+</case><default>default:
+    <break>break;</break>
+</default>}</block></switch>
+

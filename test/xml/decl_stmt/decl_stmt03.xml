@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:cpp="http://www.sdml.info/srcML/cpp" language="C++" filename="lab5.cpp">
+<decl_stmt><decl><type><name>const</name> <name>int</name></type> <name>SUN</name> =<init> <expr>1</expr></init>, <name>MON</name> =<init> <expr>2</expr></init>, <name>TUE</name> =<init> <expr>3</expr></init>,
+            <name>WED</name> =<init> <expr>4</expr></init>, <name>THU</name> =<init> <expr>5</expr></init>, <name>FRI</name> =<init> <expr>6</expr></init>, <name>SAT</name> =<init> <expr>7</expr></init></decl>;</decl_stmt>
+</unit>

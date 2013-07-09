@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<if>if <condition>(<expr><name>a</name> == 3</expr>)</condition><then> 
+    <expr_stmt><expr><name>b</name> = 4</expr>;</expr_stmt></then></if>

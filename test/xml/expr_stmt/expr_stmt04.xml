@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:cpp="http://www.sdml.info/srcML/cpp" language="C++" filename="ScoreTable.cpp"><expr_stmt><expr><call><name>getline</name><argument_list>(<argument><expr><name>cin</name></expr></argument>,<argument><expr><name>person3</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+</unit>

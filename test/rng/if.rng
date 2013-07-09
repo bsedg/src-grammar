@@ -1,0 +1,44 @@
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+   <start>
+      <element name="if">
+         <text/>
+	 <element name="condition">
+		  <optional><text/></optional>
+	 	  <element name="expr">
+		  	   <optional><text/></optional>
+		  	   <element name="name">
+			   	    <text/>
+			   </element>
+			   <optional><text/></optional>
+		  </element>
+		  <optional><text/></optional>
+	 </element>
+	 <text/>
+	 <element name="then">
+	 	  <optional><text/></optional>
+		  <element name="block">
+		  	   <optional><text/></optional>
+		  	   <ref name="anyElement"/>
+		  	   <optional><text/></optional>
+		  </element>
+	 	  <optional><text/></optional>
+	 </element>
+	 <optional><text/></optional>
+      </element>
+   </start>
+
+   <define name="anyElement">
+	<element>
+	<anyName/>
+	<zeroOrMore>
+	<choice>
+		<attribute>
+		<anyName/>
+		</attribute>
+		<text/>
+		<ref name="anyElement"/>
+	</choice>
+	</zeroOrMore>
+	</element>
+    </define>
+</grammar>
