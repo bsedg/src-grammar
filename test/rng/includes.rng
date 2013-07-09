@@ -1,0 +1,76 @@
+<grammar xmlns="http://relaxng.org/ns/structure/1.0" 
+	 xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+	 ns="http://www.sdml.info/srcML/src" 
+	 >
+
+	 <a:documentation>
+	RELAX NG schema for base definitions of srcML elements
+    	file: includes.rng
+
+	Brandon Sedgwick
+	bmsedgwick@gmail.com
+	2013
+	 </a:documentation>
+
+	 <define name="iostream">
+         	 <element name="include" ns="http://www.sdml.info/srcML/cpp">
+                            <optional><text/></optional>
+                            <element name="directive">
+                                     <text/>
+                            </element>
+                            <text/>
+                            <element name="file">
+			    	  <choice>
+					<value type="string">&lt;iostream&gt;</value>
+				  </choice>
+                 	    </element>
+                 </element>
+           </define>
+
+	 <define name="iomanip">
+         	 <element name="include" ns="http://www.sdml.info/srcML/cpp">
+                            <optional><text/></optional>
+                            <element name="directive">
+                                     <text/>
+                            </element>
+                            <text/>
+                            <element name="file">
+			    	  <choice>
+					<value type="string">&lt;iomanip&gt;</value>
+				  </choice>
+                 	    </element>
+                 </element>
+           </define>
+
+	 <define name="cmath">
+         	 <element name="include" ns="http://www.sdml.info/srcML/cpp">
+                            <optional><text/></optional>
+                            <element name="directive">
+                                     <text/>
+                            </element>
+                            <text/>
+                            <element name="file">
+			    	  <choice>
+					<value type="string">&lt;cmath&gt;</value>
+				  </choice>
+                 	    </element>
+                 </element>
+           </define>
+
+	 <define name="string">
+         	 <element name="include" ns="http://www.sdml.info/srcML/cpp">
+                            <optional><text/></optional>
+                            <element name="directive">
+                                     <text/>
+                            </element>
+                            <text/>
+                            <element name="file">
+			    	  <choice>
+					<value type="string">&lt;string&gt;</value>
+				  </choice>
+                 	    </element>
+                 </element>
+           </define>
+
+</grammar>
+
