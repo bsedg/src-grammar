@@ -44,7 +44,7 @@ testValidate ELEMENT                 - test against ELEMENT.xml.* with ELEMENT.r
 
 		    while read line
 		    do
-			echo $line | sed 's/.*xml//'
+			echo $line # | sed 's/.*xml//'
 		    done < validation.temp.txt
 
 		    echo
