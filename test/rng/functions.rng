@@ -1,0 +1,33 @@
+<grammar xmlns="http://relaxng.org/ns/structure/1.0" 
+	 xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+	 ns="http://www.sdml.info/srcML/src"
+	 >
+
+	 <a:documentation>
+	     RELAX NG schema for function calls
+
+	     Brandon Sedgwick
+	     bmsedgwick@gmail.com
+	     2013
+	 </a:documentation>
+
+         <define name="function_call">
+	    <element name="call">
+		     <element name="name">
+		     	      <text/>
+		     </element>
+		     <element name="argument_list">
+		     	      <text/>
+			      <zeroOrMore>
+				<element name="argument">
+					 <element name="expr">
+					 	  <text/>
+					 </element>
+				</element>
+				<optional><text/></optional>
+			      </zeroOrMore>
+		     </element>
+		     <text/>
+	    </element>
+	 </define>
+</grammar>

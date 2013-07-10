@@ -1,0 +1,95 @@
+<grammar xmlns="http://relaxng.org/ns/structure/1.0" 
+	 xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+	 ns="http://www.sdml.info/srcML/src"
+	 >
+
+	 <a:documentation>
+	     RELAX NG schema for for loops
+
+	     Brandon Sedgwick
+	     bmsedgwick@gmail.com
+	     2013
+	 </a:documentation>
+
+	 <include href="statements.rng"/>
+	 <include href="functions.rng"/>
+	 <include href="comments.rng"/>
+
+	 <start>
+		<element name="unit">
+				 <oneOrMore>
+					<choice>
+						<attribute name="filename"/>
+						<attribute name="language"/>
+					</choice>
+				</oneOrMore>
+				<ref name="for"/>
+		</element>
+	 </start>
+
+         <define name="for">
+	    <element name="for">
+	    	     <text/>
+		     <element name="init">
+		     	      <element name="decl">
+			      	       <element name="type">
+				       		<element name="name">
+							 <text/>
+						</element>
+				       </element>
+				       <text/>
+				       <element name="name">
+				       		<text/>
+				       </element>
+				       <text/>
+				       <element name="init">
+				       		<element name="expr">
+							 <optional><text/></optional>
+							 <optional>
+								<element name="name">
+									 <text/>
+								</element>
+							 </optional>
+						</element>
+				       </element>
+			      </element>
+		     	      <text/>
+		     </element>
+		     <element name="condition">
+		     	      <element name="expr">
+			      	       <element name="name">
+				       		<text/>
+				       </element>
+				       <text/>
+				       <element name="name">
+				       		<text/>
+				       </element>
+			      </element>
+			      <text/>
+		     </element>
+		     <element name="incr">
+		     	      <element name="expr">
+			      	       <optional><text/></optional>
+				       <element name="name">
+				       		<text/>
+				       </element>
+			      	       <optional><text/></optional>
+			      </element>
+		     </element>
+		     <text/>
+		     <element name="block">
+		     	      <text/>
+			      <oneOrMore>
+				<choice>
+					<text/>
+					<ref name="comment"/>
+					<ref name="expression_statement"/>
+					<ref name="declarative_statement"/>
+				</choice>
+			      </oneOrMore>
+		     </element>
+	    	     <optional><text/></optional>
+	    </element>
+	    <optional><text/></optional>
+	 </define>
+</grammar>

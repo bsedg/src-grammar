@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:cpp="http://www.sdml.info/srcML/cpp" language="C++" filename="For.cpp"><for>for(<init><decl><type><name>int</name></type> <name>i</name>=<init><expr>0</expr></init></decl>;</init><condition><expr><name>i</name>&lt;=<name>upperLimit</name></expr>;</condition><incr><expr>++<name>i</name></expr></incr>)<block>{
+        <expr_stmt><expr><name>cout</name> &lt;&lt; <name>i</name> &lt;&lt; " "</expr>;</expr_stmt>
+    }</block></for>
+</unit>

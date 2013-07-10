@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:cpp="http://www.sdml.info/srcML/cpp" language="C++" filename="For.cpp"><for>for (<init><decl><type><name>int</name></type> <name>i</name> =<init> <expr>0</expr></init></decl>;</init> <condition><expr><name>i</name> &lt; <name>ARRAYLEN</name></expr>;</condition> <incr><expr><name>i</name>++</expr></incr>) <block>{
+      <if>if<condition>(<expr><name><name>numbers</name><index>[<expr><name>i</name></expr>]</index></name> == <name><name>inputs</name><index>[<expr><name>i</name></expr>]</index></name></expr>)</condition><then> <block>{
+	    <expr_stmt><expr><name>equal</name>= true</expr>;</expr_stmt>
+      }</block></then> <else>else <block>{
+	    <expr_stmt><expr><name>equal</name> = false</expr>;</expr_stmt>
+      }</block></else></if>
+    }</block></for></unit>
+
