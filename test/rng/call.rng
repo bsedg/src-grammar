@@ -11,6 +11,8 @@
 	     2013
 	 </a:documentation>
 
+	 <include href="functions.rng"/>
+
 	 <start>
 		<element name="unit">
 				 <oneOrMore>
@@ -22,24 +24,4 @@
 				<ref name="function_call"/>
 		</element>
 	 </start>
-
-         <define name="function_call">
-	    <element name="call">
-		     <element name="name">
-		     	      <text/>
-		     </element>
-		     <element name="argument_list">
-		     	      <text/>
-			      <zeroOrMore>
-				<element name="argument">
-					 <element name="expr">
-					 	  <text/>
-					 </element>
-				</element>
-				<optional><text/></optional>
-			      </zeroOrMore>
-		     </element>
-		     <text/>
-	    </element>
-	 </define>
 </grammar>

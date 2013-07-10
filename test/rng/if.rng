@@ -11,6 +11,9 @@
 	     bmsedgwick@gmail.com
 	     2013
 	      </a:documentation>
+
+	      <include href="statements.rng"/>
+
    <start>
 	<element name="unit">
 		 <oneOrMore>
@@ -41,11 +44,14 @@
 	 <text/>
 	 <element name="then">
 	 	  <optional><text/></optional>
-		  <element name="block">
+		  <choice>
+			<element name="block">
 		  	   <optional><text/></optional>
 		  	   <ref name="anyElement"/>
 		  	   <optional><text/></optional>
-		  </element>
+		  	</element>
+			<ref name="expression_statement"/>
+		  </choice>
 	 	  <optional><text/></optional>
 	 </element>
 	 <optional><text/></optional>

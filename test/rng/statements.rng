@@ -11,6 +11,8 @@
 	2013
 	 </a:documentation>
 
+	 <include href="functions.rng"/>
+
 	   <a:documentation>
 		Expression statement.
 

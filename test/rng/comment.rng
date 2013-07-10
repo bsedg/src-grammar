@@ -2,7 +2,6 @@
 	 xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
 	 ns="http://www.sdml.info/srcML/src"
 	 >
-
 	 <a:documentation>
 	     RELAX NG schema for comments
     	     file: comments.rng
@@ -11,6 +10,8 @@
 	     bmsedgwick@gmail.com
 	     2013
 	 </a:documentation>
+
+	 <include href="comments.rng"/>
 
 	 <start>
 		<element name="unit">
@@ -28,28 +29,4 @@
 			</oneOrMore>
 		</element>
 	 </start>
-
-         <define name="comment">
-	    <element name="comment">
-	    	     <attribute name="type">
-		     		<text/>
-		     </attribute>
-		     <text/>
-	    </element>
-	 </define>
-
-           <define name="header_comment">
-	   	   <element name="comment">
-		   	    <attribute name="type">
-			    	       <value>block</value>
-			    </attribute>
-			    <oneOrMore>
-				<choice>
-					<text/>
-					<empty/>
-				</choice>
-			    </oneOrMore>
-		   </element>
-	   </define>
-
 </grammar>

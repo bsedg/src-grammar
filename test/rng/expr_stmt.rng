@@ -2,15 +2,16 @@
 	 xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
 	 ns="http://www.sdml.info/srcML/src" 
 	 >
-
 	 <a:documentation>
-	RELAX NG schema for base definitions of srcML elements
-    	file: expr_stmt.rng
+	RELAX NG schema for base definitions of srcML expression statements
 
 	Brandon Sedgwick
-	bms49@zips.uakron.edu
-	Spring 2013
+	bmsedgwick@gmail.com
+	2013
 	 </a:documentation>
+
+	 <include href="statements.rng"/>
+	 <include href="functions.rng"/>
 
 	 <start>
 		<element name="unit">
@@ -27,69 +28,4 @@
 			 </oneOrMore>
 		</element>
 	 </start>
-
-	 <a:documention>
-		Function call
-	 </a:documention>
-	 <define name="function_call">
-	 	 <element name="call">
-		 	  <element name="name">
-			  	   <text/>
-			  </element>
-			  <element name="argument_list">
-			  	   <text/>
-				   <oneOrMore>
-				   <element name="argument">
-				   	    <element name="expr">
-					    	     <text/>
-						     <optional>
-						        <oneOrMore>
-							   <element name="name">
-						     	      <text/>
-						     	   </element>
-							   <optional><text/></optional>
-							</oneOrMore>
-						     </optional>
-					    </element>
-				   </element>
-					    <optional><text/></optional>				 
-				   </oneOrMore>
-			</element>
-		 </element>
-	 </define>
-
-	   <a:documentation>
-		Expression statement.
-
-		cout  "Welcome to Lab 1" endl;
-
-		<expr_stmt><expr><name>cout</name> &lt;&lt; "Welcome to Lab 1" &lt;&lt; <name>endl</name></expr>;</expr_stmt>
-
-		cin distance1 distance2;
-		<expr_stmt><expr><name>cin</name> &gt;&gt; <name>distance1</name> &gt;&gt; <name>distance2</name></expr>;</expr_stmt>
-	  </a:documentation>
-	   <define name="expression_statement">
-			<element name="expr_stmt">
-				 <element name="expr">
-					  <zeroOrMore>
-						<optional><text/></optional>
-						<element name="name">
-					  	   <text/>
-					  	</element>
-					  	<text/>
-					  </zeroOrMore>
-					  <zeroOrMore>
-						<choice>
-							<ref name="function_call"/>
-					  		<text/>
-							<element name="name">
-					  	   		 <text/>
-					  	   	</element>
-						</choice>
-					  </zeroOrMore>
-				 </element>
-				 <text/>
-			</element>
-	   </define>
-
 </grammar>
