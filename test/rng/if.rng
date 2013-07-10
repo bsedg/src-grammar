@@ -1,5 +1,30 @@
-<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+<grammar xmlns="http://relaxng.org/ns/structure/1.0" 
+	  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+	   ns="http://www.sdml.info/srcML/src" 
+	    >
+
+	     <a:documentation>
+	     RELAX NG schema for base definitions of srcML elements
+    	     file: expr_stmt.rng
+
+	     Brandon Sedgwick
+	     bmsedgwick@gmail.com
+	     2013
+	      </a:documentation>
    <start>
+	<element name="unit">
+		 <oneOrMore>
+			<choice>
+				<attribute name="filename"/>
+				<attribute name="language"/>
+			</choice>
+		 </oneOrMore>
+
+		 <ref name="if"/>
+	</element>
+   </start>
+
+   <define name="if">
       <element name="if">
          <text/>
 	 <element name="condition">
@@ -25,7 +50,7 @@
 	 </element>
 	 <optional><text/></optional>
       </element>
-   </start>
+   </define>
 
    <define name="anyElement">
 	<element>
