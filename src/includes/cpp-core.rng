@@ -15,7 +15,6 @@
 	 <include href="includes.rng"/>
 	 <include href="usings.rng"/>
 	 <include href="functions.rng"/>
-	 <include href="ifs.rng"/>
-	 <include href="switch.rng"/>
+	 <include href="conditionals.rng"/>
 	 <include href="loops.rng"/>
 </grammar>

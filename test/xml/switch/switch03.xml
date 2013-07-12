@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:cpp="http://www.sdml.info/srcML/cpp" language="C++" filename="Switch.cpp">
+<switch>switch<condition>(<expr><name>month</name></expr>)</condition>
+    <block>{
+        <case>case <expr><name>JAN</name></expr>:
+        </case><case>case <expr><name>FEB</name></expr>:
+        </case><case>case <expr><name>MAR</name></expr>:
+        </case><case>case <expr><name>APR</name></expr>: <expr_stmt><expr><name>cout</name> &lt;&lt; "Spring semester\n"</expr>;</expr_stmt>
+                  <expr_stmt><expr><name>season</name> = <name>SPRING</name></expr>;</expr_stmt>      
+                  <break>break;</break> 
+        </case><case>case <expr><name>MAY</name></expr>:    
+        </case><case>case <expr><name>JUN</name></expr>:
+        </case><case>case <expr><name>JUL</name></expr>:
+        </case><case>case <expr><name>AUG</name></expr>: <expr_stmt><expr><name>cout</name> &lt;&lt; "Summer semester\n"</expr>;</expr_stmt>
+                  <expr_stmt><expr><name>season</name> = <name>SUMMER</name></expr>;</expr_stmt>
+                  <break>break;</break>
+        </case><case>case <expr><name>SEP</name></expr>:
+        </case><case>case <expr><name>OCT</name></expr>:                 
+        </case><case>case <expr><name>NOV</name></expr>:
+        </case><case>case <expr><name>DEC</name></expr>: <expr_stmt><expr><name>cout</name> &lt;&lt; "Fall semester\n"</expr>;</expr_stmt>
+                  <expr_stmt><expr><name>season</name> = <name>FALL</name></expr>;</expr_stmt>
+                  <break>break;</break>
+        </case><default>default: <expr_stmt><expr><name>cout</name> &lt;&lt; "Invalid month!\n"</expr>;</expr_stmt>
+                 <expr_stmt><expr><name>season</name> = <name>INVALID</name></expr>;</expr_stmt>
+    </default>}</block></switch>
+</unit>

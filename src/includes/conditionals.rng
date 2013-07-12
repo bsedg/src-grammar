@@ -1,0 +1,88 @@
+<grammar xmlns="http://relaxng.org/ns/structure/1.0" 
+	  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+	   ns="http://www.sdml.info/srcML/src" 
+	    >
+
+	     <a:documentation>
+	     RELAX NG schema for base definitions of srcML switch elements
+
+	     Brandon Sedgwick
+	     bmsedgwick@gmail.com
+	     2013
+	      </a:documentation>
+
+  <define name="switch">
+      <element name="switch">
+      	       <text/>
+      	       <ref name="condition"/>
+		<element name="block">
+			 <text/>
+			 <oneOrMore>
+				<ref name="case"/>
+			 </oneOrMore>
+			 <optional><text/></optional>
+			 <ref name="default"/>
+		</element>
+		<optional><text/></optional>
+	</element>
+  </define>
+
+  <define name="condition">
+  	  <element name="condition">
+	  	   <optional><text/></optional>
+	  	   <element name="expr">
+		   	    <element name="name">
+			    	     <text/>
+			    </element>
+		   </element>
+		   <optional><text/></optional>
+	  </element>
+  </define>
+
+  <define name="default">
+	  <element name="default">
+	  	   <oneOrMore>
+			<choice>
+				<text/>
+		   		<ref name="expression_statement"/>
+			</choice>
+		   </oneOrMore>
+		   <optional>
+			<element name="break">
+		   	    <text/>
+		   	</element>
+		   </optional>
+	  </element>
+	  <text/>
+  </define>
+
+  <define name="case">
+  	  <element name="case">
+	  	   <text/>
+		   <element name="expr">
+	  	   	<oneOrMore>
+				<choice>
+					<element name="name">
+						 <text/>
+					</element>
+					<text/>
+                               		<ref name="expression_statement"/>
+                       		</choice>
+                  	</oneOrMore>
+		  	<text/>
+                  </element>
+		   <oneOrMore>
+			<choice>
+				<text/>
+		   		<ref name="expression_statement"/>
+			</choice>
+		   </oneOrMore>
+		   <optional>
+			<element name="break">
+		   	    <text/>
+		   	</element>
+		   </optional>
+	  </element>
+  </define>
+</grammar>
+

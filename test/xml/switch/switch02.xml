@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:cpp="http://www.sdml.info/srcML/cpp" language="C++" filename="Switch.cpp">
+<switch>switch<condition>(<expr><name>day</name></expr>)</condition>
+            <block>{   
+                <case>case <expr><name>SUN</name></expr>:
+                </case><case>case <expr><name>SAT</name></expr>: <expr_stmt><expr><name>cout</name> &lt;&lt; "easy\n"</expr>;</expr_stmt>
+                          <break>break;</break>
+                </case><case>case <expr><name>FRI</name></expr>: <expr_stmt><expr><name>cout</name> &lt;&lt; "moderate\n"</expr>;</expr_stmt>
+                          <break>break;</break>           
+                </case><case>case <expr><name>MON</name></expr>:
+                </case><case>case <expr><name>TUE</name></expr>:
+                </case><case>case <expr><name>WED</name></expr>:
+                </case><case>case <expr><name>THU</name></expr>: <expr_stmt><expr><name>cout</name> &lt;&lt; "hard\n"</expr>;</expr_stmt>
+                            <break>break;</break>
+                </case><default>default: <expr_stmt><expr><name>cout</name> &lt;&lt; "imaginary\n"</expr>;</expr_stmt>
+            </default>}</block></switch>
+</unit>
