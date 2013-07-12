@@ -11,6 +11,8 @@
 	     2013
 	 </a:documentation>
 
+	 <include href="../../src/includes/usings.rng"/>
+
 	 <start>
 		<element name="unit">
 				 <oneOrMore>
@@ -22,14 +24,4 @@
 				<ref name="using"/>
 		</element>
 	 </start>
-
-         <define name="using">
-	    <element name="using">
-	    	     <text/>
-		     <element name="name">
-		     	      <text/>
-		     </element>
-		     <text/>
-	    </element>
-	 </define>
 </grammar>

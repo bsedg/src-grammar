@@ -11,7 +11,7 @@
 	     2013
 	 </a:documentation>
 
-	 <include href="functions.rng"/>
+	 <include href="../../src/includes/functions.rng"/>
 
 	 <start>
 		<element name="unit">

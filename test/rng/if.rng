@@ -12,7 +12,7 @@
 	     2013
 	      </a:documentation>
 
-	      <include href="statements.rng"/>
+	      <include href="../../src/includes/statements.rng"/>
 
    <start>
 	<element name="unit">

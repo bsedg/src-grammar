@@ -11,6 +11,8 @@
 	2013
 	 </a:documentation>
 
+	 <include href="includes.rng"/>
+
 	 <start>
 		<element name="unit">
 			 <oneOrMore>
@@ -30,66 +32,5 @@
 			 </oneOrMore>
 		</element>
 	 </start>
-
-	 <define name="iostream">
-         	 <element name="include" ns="http://www.sdml.info/srcML/cpp">
-                            <optional><text/></optional>
-                            <element name="directive">
-                                     <text/>
-                            </element>
-                            <text/>
-                            <element name="file">
-			    	  <choice>
-					<value type="string">&lt;iostream&gt;</value>
-				  </choice>
-                 	    </element>
-                 </element>
-           </define>
-
-	 <define name="iomanip">
-         	 <element name="include" ns="http://www.sdml.info/srcML/cpp">
-                            <optional><text/></optional>
-                            <element name="directive">
-                                     <text/>
-                            </element>
-                            <text/>
-                            <element name="file">
-			    	  <choice>
-					<value type="string">&lt;iomanip&gt;</value>
-				  </choice>
-                 	    </element>
-                 </element>
-           </define>
-
-	 <define name="cmath">
-         	 <element name="include" ns="http://www.sdml.info/srcML/cpp">
-                            <optional><text/></optional>
-                            <element name="directive">
-                                     <text/>
-                            </element>
-                            <text/>
-                            <element name="file">
-			    	  <choice>
-					<value type="string">&lt;cmath&gt;</value>
-				  </choice>
-                 	    </element>
-                 </element>
-           </define>
-
-	 <define name="string">
-         	 <element name="include" ns="http://www.sdml.info/srcML/cpp">
-                            <optional><text/></optional>
-                            <element name="directive">
-                                     <text/>
-                            </element>
-                            <text/>
-                            <element name="file">
-			    	  <choice>
-					<value type="string">&lt;string&gt;</value>
-				  </choice>
-                 	    </element>
-                 </element>
-           </define>
-
 </grammar>
 

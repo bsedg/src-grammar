@@ -10,8 +10,8 @@
 	2013
 	 </a:documentation>
 
-	 <include href="statements.rng"/>
-	 <include href="functions.rng"/>
+	 <include href="../../src/includes/statements.rng"/>
+	 <include href="../../src/includes/functions.rng"/>
 
 	 <start>
 		<element name="unit">

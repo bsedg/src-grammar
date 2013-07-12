@@ -11,9 +11,9 @@
 	     2013
 	 </a:documentation>
 
+	 <include href="loops.rng"/>
 	 <include href="statements.rng"/>
-	 <include href="functions.rng"/>
-	 <include href="comments.rng"/>
+	 <inlcude href="comments.rng"/>
 
 	 <start>
 		<element name="unit">
@@ -26,70 +26,4 @@
 				<ref name="for"/>
 		</element>
 	 </start>
-
-         <define name="for">
-	    <element name="for">
-	    	     <text/>
-		     <element name="init">
-		     	      <element name="decl">
-			      	       <element name="type">
-				       		<element name="name">
-							 <text/>
-						</element>
-				       </element>
-				       <text/>
-				       <element name="name">
-				       		<text/>
-				       </element>
-				       <text/>
-				       <element name="init">
-				       		<element name="expr">
-							 <optional><text/></optional>
-							 <optional>
-								<element name="name">
-									 <text/>
-								</element>
-							 </optional>
-						</element>
-				       </element>
-			      </element>
-		     	      <text/>
-		     </element>
-		     <element name="condition">
-		     	      <element name="expr">
-			      	       <element name="name">
-				       		<text/>
-				       </element>
-				       <text/>
-				       <element name="name">
-				       		<text/>
-				       </element>
-			      </element>
-			      <text/>
-		     </element>
-		     <element name="incr">
-		     	      <element name="expr">
-			      	       <optional><text/></optional>
-				       <element name="name">
-				       		<text/>
-				       </element>
-			      	       <optional><text/></optional>
-			      </element>
-		     </element>
-		     <text/>
-		     <element name="block">
-		     	      <text/>
-			      <oneOrMore>
-				<choice>
-					<text/>
-					<ref name="comment"/>
-					<ref name="expression_statement"/>
-					<ref name="declarative_statement"/>
-				</choice>
-			      </oneOrMore>
-		     </element>
-	    	     <optional><text/></optional>
-	    </element>
-	    <optional><text/></optional>
-	 </define>
 </grammar>
