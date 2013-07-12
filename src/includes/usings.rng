@@ -1,0 +1,23 @@
+<grammar xmlns="http://relaxng.org/ns/structure/1.0" 
+	 xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+	 ns="http://www.sdml.info/srcML/src"
+	 >
+
+	 <a:documentation>
+	     RELAX NG schema for using statements
+
+	     Brandon Sedgwick
+	     bmsedgwick@gmail.com
+	     2013
+	 </a:documentation>
+
+         <define name="using">
+	    <element name="using">
+	    	     <text/>
+		     <element name="name">
+		     	      <text/>
+		     </element>
+		     <text/>
+	    </element>
+	 </define>
+</grammar>
