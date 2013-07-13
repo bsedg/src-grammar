@@ -47,13 +47,30 @@
    <define name="ifblock">
 	   <optional><text/></optional>
 	   <choice>
-	   <element name="block">
-	      <optional><text/></optional>
-	      <ref name="anyElement"/>
-		<optional><text/></optional>
-	   </element>
-	   <ref name="expression_statement"/>
+		<element name="block">
+			 <oneOrMore>
+				<choice>
+					<text/>
+					<ref name="expression_statement"/>
+				</choice>
+			 </oneOrMore>
+		</element>
+		<ref name="expression_statement"/>
 	   </choice>
+   </define>
+
+   <define name="if_block">
+	   <optional><text/></optional>
+	   <oneOrMore>
+		<choice>
+			<element name="block">
+	      		<optional><text/></optional>
+			<ref name="anyElement"/>
+		     	<optional><text/></optional>
+	   	     </element>
+	   	<ref name="expression_statement"/>
+	   </choice>
+	   </oneOrMore>
 	   <optional><text/></optional>
    </define>
 

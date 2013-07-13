@@ -11,4 +11,5 @@
 	    }</block></for>
         <expr_stmt><expr><name><name>values</name><index>[<expr><name>maxIndex</name></expr>]</index></name> = <name><name>values</name><index>[<expr><name>startScan</name></expr>]</index></name></expr>;</expr_stmt>
 	<expr_stmt><expr><name><name>values</name><index>[<expr><name>startScan</name></expr>]</index></name> = <name>maxValue</name></expr>;</expr_stmt>
-    }</block></for></unit>
+    }</block></for>
+</unit>

@@ -100,6 +100,21 @@
 							<element name="name">
 								 <text/>
 							</element>
+							<element name="name">
+								 <element name="name">
+								 	  <text/>
+								 </element>
+								 <element name="index">
+								 	  <text/>
+									  <element name="expr">
+									  	   <element name="name">
+									  	   	    <text/>
+										   </element>
+									  </element>
+									  <text/>
+								 </element>
+								 <text/>
+							</element>
 						 </choice>
 					     </oneOrMore>
 					     </element>

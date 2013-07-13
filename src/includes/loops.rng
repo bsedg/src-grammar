@@ -34,6 +34,7 @@
 									 <text/>
 								</element>
 							 </optional>
+							 <optional><text/></optional>
 						</element>
 				       </element>
 			      </element>
@@ -48,6 +49,7 @@
 				       <element name="name">
 				       		<text/>
 				       </element>
+				       <optional><text/></optional>
 			      </element>
 			      <text/>
 		     </element>
