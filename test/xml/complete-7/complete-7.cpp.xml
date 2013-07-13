@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:cpp="http://www.sdml.info/srcML/cpp" language="C++" filename="complete-7.cpp"> <comment type="block">/********************************************************************
+  * complete-7.cpp
+  *
+  *
+  * Purpose: Introduce concepts of functions
+  *
+  ********************************************************************/</comment>
+
+<cpp:include>#<cpp:directive>include</cpp:directive> <cpp:file>&lt;iostream&gt;</cpp:file></cpp:include>
+<cpp:include>#<cpp:directive>include</cpp:directive> <cpp:file>&lt;string&gt;</cpp:file></cpp:include>
+<using>using namespace <name>std</name>;</using>
+
+<comment type="line">// prototypes</comment>
+<function_decl><type><name>int</name></type> <name>input_an_int</name><parameter_list>()</parameter_list>;</function_decl>
+<function_decl><type><name>void</name></type> <name>print_sequence</name><parameter_list>(<param><decl><type><name>const</name> <name>int</name></type> <name>upperLimit</name></decl></param>)</parameter_list>;</function_decl>
+<function_decl><type><name>string</name></type> <name>rate_time</name><parameter_list>(<param><decl><type><name>const</name> <name>int</name></type> <name>minutes</name></decl></param>)</parameter_list>;</function_decl>
+<function_decl><type><name>void</name></type> <name>call_counter</name><parameter_list>()</parameter_list>;</function_decl>
+
+<function><type><name>int</name></type> <name>main</name><parameter_list>()</parameter_list> <block>{
+    <decl_stmt><decl><type><name>int</name></type> <name>n</name></decl>;</decl_stmt>      <comment type="line">// for user input</comment>
+
+    <expr_stmt><expr><call><name>call_counter</name><argument_list>()</argument_list></call></expr>;</expr_stmt> <comment type="line">//first call</comment>
+
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Sequence from 0 to end\n"</expr>;</expr_stmt> <comment type="line">//using functions to get input and print output...</comment>
+    <expr_stmt><expr><name>n</name> = <call><name>input_an_int</name><argument_list>()</argument_list></call></expr>;</expr_stmt>
+
+    <expr_stmt><expr><call><name>print_sequence</name><argument_list>(<argument><expr><name>n</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+    <expr_stmt><expr><call><name>call_counter</name><argument_list>()</argument_list></call></expr>;</expr_stmt> <comment type="line">//second call</comment>
+     
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Let's judge your commute time (in minutes):" &lt;&lt; <name>endl</name></expr>;</expr_stmt> <comment type="line">//Judging commute time using both functions. </comment>
+    <expr_stmt><expr><name>n</name> = <call><name>input_an_int</name><argument_list>()</argument_list></call></expr>;</expr_stmt>
+
+    <expr_stmt><expr><name>cout</name> &lt;&lt; <name>n</name> &lt;&lt; " minutes seems " &lt;&lt; <call><name>rate_time</name><argument_list>(<argument><expr><name>n</name></expr></argument>)</argument_list></call> &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+
+    <expr_stmt><expr><call><name>call_counter</name><argument_list>()</argument_list></call></expr>;</expr_stmt> <comment type="line">//third call</comment>
+
+    <expr_stmt><expr><name>cin</name>.<call><name>ignore</name><argument_list>()</argument_list></call></expr>;</expr_stmt> <comment type="line">//keep window open after output. </comment>
+
+    <return>return <expr>0</expr>;</return>
+}</block></function>
+
+<comment type="line">// Get user input and try to interpret it as an integer.</comment>
+<function><type><name>int</name></type> <name>input_an_int</name><parameter_list>()</parameter_list> <block>{
+    <decl_stmt><decl><type><name>int</name></type> <name>num</name> =<init> <expr>0</expr></init></decl>;</decl_stmt>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Type an integer, then press enter:\n&gt;" &lt;&lt; <name>flush</name></expr>;</expr_stmt>
+    <expr_stmt><expr><name>cin</name> &gt;&gt; <name>num</name></expr>;</expr_stmt>
+    <expr_stmt><expr><name>cin</name>.<call><name>ignore</name><argument_list>(<argument><expr>20000</expr></argument>, <argument><expr>'\n'</expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    <return>return <expr><name>num</name></expr>;</return>
+}</block></function>
+
+<function><type><name>void</name></type> <name>print_sequence</name><parameter_list>(<param><decl><type><name>const</name> <name>int</name></type> <name>upperLimit</name></decl></param>)</parameter_list> <comment type="line">//Function to count from 0 to passed int. </comment>
+<block>{
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Sequence from 0 to " &lt;&lt; <name>upperLimit</name>
+            &lt;&lt; ": "</expr>;</expr_stmt>
+    <for>for(<init><decl><type><name>int</name></type> <name>i</name>=<init><expr>0</expr></init></decl>;</init><condition><expr><name>i</name>&lt;=<name>upperLimit</name></expr>;</condition><incr><expr>++<name>i</name></expr></incr>)<block>{
+        <expr_stmt><expr><name>cout</name> &lt;&lt; <name>i</name> &lt;&lt; " "</expr>;</expr_stmt>
+    }</block></for>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+}</block></function>
+
+<function><type><name>string</name></type> <name>rate_time</name><parameter_list>(<param><decl><type><name>const</name> <name>int</name></type> <name>minutes</name></decl></param>)</parameter_list> <comment type="line">//function to judge the amount of minutes</comment>
+<block>{
+    <if>if <condition>(<expr><name>minutes</name> &lt; 0</expr>)</condition><then>
+        <return>return <expr>"impossible"</expr>;</return></then></if>
+    <if>if <condition>(<expr><name>minutes</name> &lt; 30</expr>)</condition><then>
+        <return>return <expr>"short"</expr>;</return></then></if>
+    <if>if <condition>(<expr><name>minutes</name> &gt;= 30 &amp;&amp; <name>minutes</name> &lt; 60</expr>)</condition><then>
+        <return>return <expr>"medium"</expr>;</return></then></if>
+    <if>if <condition>(<expr><name>minutes</name> &gt;= 60 &amp;&amp; <name>minutes</name> &lt; 120</expr>)</condition><then>
+        <return>return <expr>"long"</expr>;</return></then></if>
+    <if>if <condition>(<expr><name>minutes</name> &gt;= 120</expr>)</condition><then>
+        <return>return <expr>"too long"</expr>;</return></then>
+    <else>else 
+        <return>return <expr>"imaginary?"</expr>;</return></else></if>
+}</block></function>
+
+<function><type><name>void</name></type> <name>call_counter</name><parameter_list>()</parameter_list> <comment type="line">//function simply for counting function calls to itself.</comment>
+<block>{
+    <decl_stmt><decl><type><name>static</name> <name>int</name></type> <name>count</name> =<init> <expr>0</expr></init></decl>;</decl_stmt>
+    <expr_stmt><expr><name>count</name>++</expr>;</expr_stmt>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "I have been called " &lt;&lt; <name>count</name> &lt;&lt; " time(s)!"</expr>;</expr_stmt>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+}</block></function>
+</unit>

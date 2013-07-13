@@ -11,6 +11,14 @@
 	2013
 	 </a:documentation>
 
+	 <define name="return">
+	 	 <element name="return">
+		 	  <text/> <!-- return -->
+			  <ref name="expression"/>
+			  <text/> <!-- ; -->
+		 </element>
+	 </define>
+
 	   <a:documentation>
 		Expression statement.
 

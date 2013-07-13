@@ -33,6 +33,8 @@
 	  	   <choice>
 			<ref name="ifblock"/>
 			<ref name="if"/>
+			<ref name="expression_statement"/>
+			<ref name="return"/>
 		   </choice>
 	  </element>
 	 <zeroOrMore>
@@ -43,6 +45,7 @@
 				<choice>
 					<ref name="ifblock"/>
 					<ref name="if"/>
+					<ref name="return"/>
 				</choice>
 			</element>
 		</choice>
@@ -60,6 +63,7 @@
 					<ref name="expression_statement"/>
 					<ref name="if"/>
 					<ref name="switch"/>
+					<ref name="return"/>
 				</choice>
 			 </oneOrMore>
 		</element>

@@ -11,6 +11,55 @@
 	     2013
 	 </a:documentation>
 
+	<define name="function">
+		<element name="function">
+			 <element name="type">
+			 	  <element name="name">
+			 	  	   <text/>
+			 	  </element>
+			 </element>
+			 <text/>
+			 <element name="name">
+			 	  <text/>
+			 </element>
+			 <element name="parameter_list">
+			 	  <text/>
+			  	  <oneOrMore>
+					<choice>
+						<text/>
+				  		<element name="param">
+				  			 <ref name="declaration"/>
+				  		</element>
+				  	</choice>
+				  </oneOrMore>
+			 </element>
+			 <text/>
+			 <optional><ref name="comment"/></optional>
+			 <element name="block">
+				  <oneOrMore>
+					<choice>
+						<text/>
+			 	  		<ref name="comment"/>
+			 	  		<ref name="declarative_statement"/>
+			 	  		<ref name="expression_statement"/>
+			 	  		<ref name="if"/>
+			 	  		<ref name="switch"/>
+			 	  		<ref name="for"/>
+			 	  		<ref name="while"/>
+				  	</choice>
+				  </oneOrMore>
+			 	  <optional>
+			 	  <element name="return">
+			 	  <text/> <!-- return -->
+			 	  <ref name="expression"/>
+			 	  <text/> <!-- ; -->
+			 	  </element>
+			 	  </optional>
+			 	  <text/>
+			 </element>
+		</element>
+	</define>
+
 	 <a:documentation>
 		Not sure if this definition should be in here, with functions,
 		or in statements with declarative statements.
@@ -35,6 +84,7 @@
 			  	   <text/>
 			  </element>
 			  <element name="parameter_list">
+			  	   <text/>
 			  	   <oneOrMore>
 					<choice>
 						<text/>
@@ -77,3 +127,4 @@
 	    </element>
 	 </define>
 </grammar>
+
