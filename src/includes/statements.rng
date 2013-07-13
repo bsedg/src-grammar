@@ -11,8 +11,6 @@
 	2013
 	 </a:documentation>
 
-	 <include href="functions.rng"/>
-
 	   <a:documentation>
 		Expression statement.
 
@@ -22,29 +20,51 @@
 
 		cin distance1 distance2;
 		<expr_stmt><expr><name>cin</name> &gt;&gt; <name>distance1</name> &gt;&gt; <name>distance2</name></expr>;</expr_stmt>
+		total += numbers[j];
+		<expr_stmt><expr><name>total</name> += <name><name>numbers</name><index>[<expr><name>j</name></expr>]</index></name></expr>;</expr_stmt>
 	  </a:documentation>
 	   <define name="expression_statement">
 			<element name="expr_stmt">
-				 <element name="expr">
-					  <zeroOrMore>
-						<optional><text/></optional>
-						<element name="name">
-					  	   <text/>
-					  	</element>
-					  	<text/>
-					  </zeroOrMore>
-					  <zeroOrMore>
-						<choice>
-							<ref name="function_call"/>
-					  		<text/>
-							<element name="name">
-					  	   		 <text/>
-					  	   	</element>
-						</choice>
-					  </zeroOrMore>
-				 </element>
-				 <text/>
+				 <ref name="expression"/>	
 			</element>
+	   </define>
+
+	   <define name="expression">
+	   	 <element name="expr">
+		 	  <zeroOrMore>
+				<optional><text/></optional>
+				<element name="name">
+				   <oneOrMore>
+				   	<choice>
+						<text/>
+						<element name="name">
+							 <text/>
+						</element>
+						<element name="index">
+							 <text/>
+							 <element name="expr">
+								<element name="name">
+								   <text/>
+								</element>
+							 </element>
+							 <text/>
+						</element>
+					</choice>
+				   </oneOrMore>
+				</element>
+				<text/>
+			</zeroOrMore>
+			<zeroOrMore>
+				<choice>
+					<ref name="function_call"/>
+					<text/>
+					<element name="name">
+						 <text/>
+					</element>
+				</choice>
+			</zeroOrMore>
+		</element>
+		<text/>
 	   </define>
 
 	 <a:documentation>

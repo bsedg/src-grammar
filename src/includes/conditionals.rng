@@ -11,6 +11,87 @@
 	     2013
 	      </a:documentation>
 
+	      <a:documentation>
+		if (numbers[i] == inputs[i]) {
+		
+	      </a:documentation>
+
+   <define name="if">
+      <element name="if">
+         <text/>
+	  <element name="condition">
+	  	   <text/>
+		   <zeroOrMore>
+			<choice>
+				<text/>
+				<ref name="expression_statement"/>
+				<ref name="expression"/>
+			</choice>
+		   </zeroOrMore>
+	  </element>
+	  <element name="then">
+		 <ref name="ifblock"/>
+	  </element>
+	 <zeroOrMore>
+		<choice>
+			<text/>
+			<element name="else">
+			 	<text/>
+				<ref name="ifblock"/>
+			</element>
+		</choice>
+	</zeroOrMore>
+	</element> <!-- ending if -->
+   </define>
+
+   <define name="ifblock">
+	   <optional><text/></optional>
+	   <choice>
+	   <element name="block">
+	      <optional><text/></optional>
+	      <ref name="anyElement"/>
+		<optional><text/></optional>
+	   </element>
+	   <ref name="expression_statement"/>
+	   </choice>
+	   <optional><text/></optional>
+   </define>
+
+   <define name="ifexpression">
+   	   <element name="expr">
+	   	    <element name="name">
+		    	     <text/>
+		    	     <element name="name">
+			     	      <text/>
+			     </element>
+			     <element name="index">
+			     	      <text/>
+				      <element name="expr">
+				      	       <element name="name">
+					       		<text/>
+					       </element>
+				      </element>
+				      <text/>
+			     </element>
+		    </element>
+	   </element>
+   </define>
+
+   <define name="anyElement">
+   <element>
+   <anyName/>
+   <zeroOrMore>
+   <choice>
+	<attribute>
+		<anyName/>
+			</attribute>
+				<text/>
+					<ref name="anyElement"/>
+					</choice>
+					</zeroOrMore>
+					</element>
+    </define>
+
   <define name="switch">
       <element name="switch">
       	       <text/>

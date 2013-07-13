@@ -69,6 +69,8 @@
 					<ref name="comment"/>
 					<ref name="expression_statement"/>
 					<ref name="declarative_statement"/>
+					<ref name="for"/>
+					<ref name="if"/>
 				</choice>
 			      </oneOrMore>
 		     </element>
