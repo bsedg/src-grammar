@@ -1,0 +1,71 @@
+<grammar xmlns="http://relaxng.org/ns/structure/1.0" 
+	 xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+	 ns="http://www.sdml.info/srcML/src" 
+	 >
+
+	 <a:documentation>
+	 RELAX NG schema for a complete program.
+
+	 Brandon Sedgwick
+	 bmsedgwick@gmail.com
+	 Spring 2013
+	 </a:documentation>
+
+	<!-- get definitions of components-->
+        <include href="../../src/includes/cpp-core.rng"/>
+
+	<start>
+	   <element name="unit">
+			 <optional><attribute name="language"/></optional>
+			 <optional><attribute name="filename"/></optional>
+
+			 <oneOrMore>
+				<ref name="comment" />
+			 </oneOrMore>
+			 <optional><text/></optional>
+			 <ref name="iostream" />
+			 <optional><text/></optional>
+			 <ref name="using" />
+			 <optional><text/></optional>
+
+			 <optional><ref name="comment"/></optional>
+			 <element name="function">
+			 	  <element name="type">
+					<element name="name">
+					      <text/>
+					</element>
+				   </element>
+				   <text/>
+				   <element name="name">
+					<text/>
+				   </element>
+				   <element name="parameter_list">
+					<text/>
+				   </element>
+				   <text/>
+			 	  <element name="block">
+				  	   <oneOrMore>
+						<choice>
+							<text/>
+							<ref name="declarative_statement"/>
+							<ref name="expression_statement"/>
+							<ref name="comment"/>
+						</choice>
+					    </oneOrMore>
+					    <optional>
+						<element name="return">
+							 <oneOrMore>
+								<choice>
+									<text/>
+									<ref name="expression"/>
+									<ref name="expression_statement"/>
+								</choice>
+							 </oneOrMore>
+						</element>
+					    </optional>
+					    <text/>	  	   
+				  </element>
+			 </element>
+	   </element>
+	</start>
+</grammar>
