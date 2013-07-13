@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:cpp="http://www.sdml.info/srcML/cpp" language="C++" filename="while01.cpp"><while>while<condition>(<expr><name>i</name> &lt;= <name>num</name></expr>)</condition> <block>{
+        <expr_stmt><expr><name>cout</name> &lt;&lt; <name>i</name> &lt;&lt; " "</expr>;</expr_stmt>
+        <expr_stmt><expr>++<name>i</name></expr>;</expr_stmt>
+    }</block></while>
+</unit>

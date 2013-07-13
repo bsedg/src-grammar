@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:cpp="http://www.sdml.info/srcML/cpp" language="C++" filename="while02.cpp"><while>while <condition>(<expr><name>found</name> != true &amp;&amp; <name>firstIndex</name> &lt;= <name>lastIndex</name></expr>)</condition> <block>{
+      <decl_stmt><decl><type><name>int</name></type> <name>middle</name> =<init> <expr>((<name>firstIndex</name> + <name>lastIndex</name>) / 2)</expr></init></decl>;</decl_stmt>
+      <if>if <condition>(<expr><name><name>ar</name><index>[<expr><name>middle</name></expr>]</index></name> == <name>valueSearchedFor</name></expr>)</condition><then> <block>{
+	      <expr_stmt><expr><name>position</name> = <name>middle</name></expr>;</expr_stmt>
+	        <expr_stmt><expr><name>found</name> = true</expr>;</expr_stmt>
+		}</block></then>
+	<else>else <if>if <condition>(<expr><name><name>ar</name><index>[<expr><name>middle</name></expr>]</index></name> &lt;<name>valueSearchedFor</name></expr>)</condition><then> <block>{
+		  <expr_stmt><expr><name>firstIndex</name> = (<name>middle</name> + 1)</expr>;</expr_stmt>
+		  }</block></then>
+	    <else>else <block>{
+		  <expr_stmt><expr><name>lastIndex</name> = (<name>middle</name> - 1)</expr>;</expr_stmt>
+		  }</block></else></if></else></if>
+      }</block></while>
+</unit>
