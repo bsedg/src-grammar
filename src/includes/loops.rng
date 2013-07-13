@@ -80,6 +80,14 @@
 				       		<text/>
 				       </element>
 			      	       <optional><text/></optional>
+
+				       <!-- for (int i=m;i<n; i += step) ... 'i += step' -->
+				       <optional>
+					<element name="name">
+						 <text/>
+					</element>
+				       </optional>
+
 			      </element>
 		     </element>
 		     <text/>

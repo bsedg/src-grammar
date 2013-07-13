@@ -100,7 +100,7 @@
 					</element>
 				  </optional>
 			</element>
-			<oneOrMore>
+			<zeroOrMore>
 				<optional><text/></optional>
 				<element name="name">
 					 <text/>
@@ -137,7 +137,7 @@
 					     </element>
 					</element>
 					</optional> <!-- optional init for a declaration -->
-			</oneOrMore>
+			</zeroOrMore>
 		</element>
 		<text/>
 	</define>

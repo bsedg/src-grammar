@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:cpp="http://www.sdml.info/srcML/cpp" language="C++" filename="complete-8.cpp"> <comment type="block">/********************************************************************
+  * complete-8.cpp
+  *
+  *
+  * Purpose: Demonstrate advanced function parameter concepts
+  *
+  ********************************************************************/</comment>
+
+<cpp:include>#<cpp:directive>include</cpp:directive> <cpp:file>&lt;iostream&gt;</cpp:file></cpp:include>
+<using>using namespace <name>std</name>;</using>
+
+<comment type="line">// prototypes</comment>
+<function_decl><type><name>int</name></type> <name>input_int</name><parameter_list>()</parameter_list>;</function_decl>
+<function_decl><type><name>double</name></type> <name>input_double</name><parameter_list>()</parameter_list>;</function_decl>
+<function_decl><type><name>void</name></type> <name>input_int</name><parameter_list>(<param><decl><type><name>int</name> &amp;</type></decl></param>, <param><decl><type><name>int</name> &amp;</type></decl></param>, <param><decl><type><name>int</name> &amp;</type></decl></param>)</parameter_list>;</function_decl>
+<function_decl><type><name>void</name></type> <name>print_sequence</name><parameter_list>(<param><decl><type><name>int</name></type></decl></param>, <param><decl><type><name>int</name></type></decl></param>, <param><decl><type><name>int</name></type> <name>step</name></decl></param>)</parameter_list>;</function_decl>
+<function_decl><type><name>void</name></type> <name>print_sequence</name><parameter_list>(<param><decl><type><name>double</name></type></decl></param>, <param><decl><type><name>double</name></type></decl></param>)</parameter_list>;</function_decl>
+
+
+
+<function><type><name>int</name></type> <name>main</name><parameter_list>()</parameter_list> <block>{
+    <decl_stmt><decl><type><name>int</name></type> <name>m</name>, <name>n</name></decl>;</decl_stmt>      <comment type="line">// for user input</comment>
+    <decl_stmt><decl><type><name>double</name></type> <name>dm</name>, <name>dn</name></decl>;</decl_stmt>
+    <decl_stmt><decl><type><name>int</name></type> <name>step</name></decl>;</decl_stmt>
+
+    <comment type="block">/*
+     *  Output sequence from startval to endval, entered by user
+     */</comment>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Integer sequence from BEGIN to END\n"</expr>;</expr_stmt>
+    <expr_stmt><expr><call><name>input_int</name><argument_list>(<argument><expr><name>m</name></expr></argument>, <argument><expr><name>n</name></expr></argument>, <argument><expr><name>step</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    
+    <comment type="line">// move the following lines into a new function:</comment>
+    <expr_stmt><expr><call><name>print_sequence</name><argument_list>(<argument><expr><name>m</name></expr></argument>, <argument><expr><name>n</name></expr></argument>, <argument><expr><name>step</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Decimal sequence from BEGIN to END\n"</expr>;</expr_stmt>
+    <expr_stmt><expr><name>dm</name> = <call><name>input_double</name><argument_list>()</argument_list></call></expr>;</expr_stmt>
+    <expr_stmt><expr><name>dn</name> = <call><name>input_double</name><argument_list>()</argument_list></call></expr>;</expr_stmt>
+    <expr_stmt><expr><call><name>print_sequence</name><argument_list>(<argument><expr><name>dm</name></expr></argument>, <argument><expr><name>dn</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    
+    <return>return <expr>0</expr>;</return>
+}</block></function>
+
+<comment type="line">// Get user input and try to interpret it as an integer.</comment>
+<function><type><name>int</name></type> <name>input_int</name><parameter_list>()</parameter_list> <block>{
+    <decl_stmt><decl><type><name>int</name></type> <name>num</name> =<init> <expr>0</expr></init></decl>;</decl_stmt>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Type an integer, then press enter:\n&gt;"</expr>;</expr_stmt>
+    <expr_stmt><expr><name>cin</name> &gt;&gt; <name>num</name></expr>;</expr_stmt>
+    <expr_stmt><expr><name>cin</name>.<call><name>ignore</name><argument_list>(<argument><expr>20000</expr></argument>, <argument><expr>'\n'</expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    <return>return <expr><name>num</name></expr>;</return>
+}</block></function>
+<function><type><name>double</name></type> <name>input_double</name><parameter_list>()</parameter_list><block>{
+    <decl_stmt><decl><type><name>double</name></type> <name>num</name> =<init> <expr>0</expr></init></decl>;</decl_stmt>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Type a decimal, then press enter:\n"</expr>;</expr_stmt>
+    <expr_stmt><expr><name>cin</name> &gt;&gt; <name>num</name></expr>;</expr_stmt>
+    <expr_stmt><expr><name>cin</name>.<call><name>ignore</name><argument_list>(<argument><expr>20000</expr></argument>, <argument><expr>'\n'</expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    <return>return <expr><name>num</name></expr>;</return>
+}</block></function>
+
+<comment type="line">//print_sequence</comment>
+
+<function><type><name>void</name></type> <name>print_sequence</name><parameter_list>(<param><decl><type><name>int</name></type> <name>m</name></decl></param>, <param><decl><type><name>int</name></type> <name>n</name></decl></param>, <param><decl><type><name>int</name></type> <name>step</name></decl></param>)</parameter_list><block>{
+        <expr_stmt><expr><name>cout</name> &lt;&lt; "Int sequence from " &lt;&lt; <name>m</name> &lt;&lt; " to " &lt;&lt; <name>n</name>
+             &lt;&lt; ": "</expr>;</expr_stmt>
+                 <for>for(<init><decl><type><name>int</name></type> <name>i</name>=<init><expr><name>m</name></expr></init></decl>;</init><condition><expr><name>i</name>&lt;=<name>n</name></expr>;</condition><incr><expr><name>i</name> += <name>step</name></expr></incr>)<block>{
+                 <expr_stmt><expr><name>cout</name> &lt;&lt; <name>i</name> &lt;&lt; " "</expr>;</expr_stmt>
+                 }</block></for>
+                 <expr_stmt><expr><name>cout</name> &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+                 
+   
+}</block></function>
+<comment type="line">//print seq double</comment>
+
+<function><type><name>void</name></type> <name>print_sequence</name><parameter_list>(<param><decl><type><name>double</name></type> <name>dm</name></decl></param>, <param><decl><type><name>double</name></type> <name>dn</name></decl></param>)</parameter_list><block>{
+        <expr_stmt><expr><name>cout</name> &lt;&lt; "Dec sequence from " &lt;&lt; <name>dm</name> &lt;&lt; " to " &lt;&lt; <name>dn</name>
+             &lt;&lt; ": "</expr>;</expr_stmt>
+                 <for>for(<init><decl><type><name>double</name></type> <name>i</name>=<init><expr><name>dm</name></expr></init></decl>;</init><condition><expr><name>i</name>&lt;=<name>dn</name></expr>;</condition><incr><expr><name>i</name> += 1</expr></incr>)<block>{
+                 <expr_stmt><expr><name>cout</name> &lt;&lt; <name>i</name> &lt;&lt; " "</expr>;</expr_stmt>
+                 }</block></for>
+                 <expr_stmt><expr><name>cout</name> &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+}</block></function>   
+
+<comment type="line">//passing argument</comment>
+
+<function><type><name>void</name></type> <name>input_int</name><parameter_list>(<param><decl><type><name>int</name> &amp;</type><name>num1</name></decl></param>, <param><decl><type><name>int</name> &amp;</type><name>num2</name></decl></param>, <param><decl><type><name>int</name> &amp;</type><name>num3</name></decl></param>)</parameter_list> <block>{
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Type in 3 integers, then press enter:\n&gt;"</expr>;</expr_stmt>
+    <expr_stmt><expr><name>cin</name> &gt;&gt; <name>num1</name> &gt;&gt; <name>num2</name> &gt;&gt; <name>num3</name></expr>;</expr_stmt>
+    <expr_stmt><expr><name>cin</name>.<call><name>ignore</name><argument_list>(<argument><expr>20000</expr></argument>, <argument><expr>'\n'</expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    
+}</block></function>
+</unit>
