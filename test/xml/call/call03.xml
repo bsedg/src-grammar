@@ -1,3 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <unit xmlns="http://www.sdml.info/srcML/src" xmlns:cpp="http://www.sdml.info/srcML/cpp" language="C++" filename="Ignore.cpp">
-<call><name>ignore</name><argument_list>(<argument><expr>20000</expr></argument>, <argument><expr>'\n'</expr></argument>)</argument_list></call></unit>
+<call><name>ignore</name><argument_list>(<argument><expr>20000</expr></argument>, <argument><expr>'\n'</expr></argument>)</argument_list></call>
+</unit>
