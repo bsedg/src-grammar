@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:cpp="http://www.sdml.info/srcML/cpp" language="C++" filename="complete-4.cpp"> <comment type="block">/********************************************************************
+  * complete-4.xpp
+  *                                                                  *
+  * Purpose: Demonstrate "if" statements                             *
+  *                                                                  *
+  ********************************************************************/</comment>
+
+
+<cpp:include>#<cpp:directive>include</cpp:directive> <cpp:file>&lt;iostream&gt;</cpp:file></cpp:include>
+<cpp:include>#<cpp:directive>include</cpp:directive> <cpp:file>&lt;iomanip&gt;</cpp:file></cpp:include>
+<cpp:include>#<cpp:directive>include</cpp:directive> <cpp:file>&lt;string&gt;</cpp:file></cpp:include>
+<using>using namespace <name>std</name>;</using>
+
+<function><type><name>int</name></type> <name>main</name><parameter_list>()</parameter_list> <block>{
+    <comment type="line">// Constant symbols to use throughout the program.</comment>
+    <decl_stmt><decl><type><name>const</name> <name>int</name></type> <name>SUN</name> =<init> <expr>1</expr></init>, <name>MON</name> =<init> <expr>2</expr></init>, <name>TUE</name> =<init> <expr>3</expr></init>,
+            <name>WED</name> =<init> <expr>4</expr></init>, <name>THU</name> =<init> <expr>5</expr></init>, <name>FRI</name> =<init> <expr>6</expr></init>, <name>SAT</name> =<init> <expr>7</expr></init></decl>;</decl_stmt>
+    <decl_stmt><decl><type><name>const</name> <name>int</name></type> <name>JAN</name> =<init> <expr>1</expr></init>, <name>FEB</name> =<init> <expr>2</expr></init>, <name>MAR</name> =<init> <expr>3</expr></init>, <name>APR</name> =<init> <expr>4</expr></init>, <name>MAY</name> =<init> <expr>5</expr></init>, <name>JUN</name> =<init> <expr>6</expr></init>,
+            <name>JUL</name> =<init> <expr>7</expr></init>, <name>AUG</name> =<init> <expr>8</expr></init>, <name>SEP</name> =<init> <expr>9</expr></init>, <name>OCT</name> =<init> <expr>10</expr></init>, <name>NOV</name> =<init> <expr>11</expr></init>, <name>DEC</name> =<init> <expr>12</expr></init></decl>;</decl_stmt>
+
+    <comment type="line">// variables to hold input.</comment>
+    <decl_stmt><decl><type><name>int</name></type> <name>month</name>, <name>day</name></decl>;</decl_stmt>
+    <decl_stmt><decl><type><name>string</name></type> <name>person</name></decl>;</decl_stmt>
+
+    <comment type="line">// prompt user to enter a name</comment>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "What is your name?\n&gt;"</expr>;</expr_stmt>
+    <expr_stmt><expr><call><name>getline</name><argument_list>(<argument><expr><name>cin</name></expr></argument>, <argument><expr><name>person</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+    <comment type="line">// prompt user to enter month</comment>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Type a number " &lt;&lt; <name>JAN</name> &lt;&lt; "-" &lt;&lt; <name>DEC</name>
+            &lt;&lt; " to select a month:\n&gt;"</expr>;</expr_stmt>
+    <expr_stmt><expr><name>cin</name> &gt;&gt; <name>month</name></expr>;</expr_stmt>
+    <expr_stmt><expr><name>cin</name>.<call><name>ignore</name><argument_list>(<argument><expr>20000</expr></argument>, <argument><expr>'\n'</expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+    <comment type="line">// prompt user to enter day of the week</comment>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Type a number " &lt;&lt; <name>SUN</name> &lt;&lt; "-" &lt;&lt; <name>SAT</name>
+            &lt;&lt; " to select a day (Sunday - Saturday)\n&gt;"</expr>;</expr_stmt>
+    <expr_stmt><expr><name>cin</name> &gt;&gt; <name>day</name></expr>;</expr_stmt>
+    <expr_stmt><expr><name>cin</name>.<call><name>ignore</name><argument_list>(<argument><expr>20000</expr></argument>, <argument><expr>'\n'</expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "You chose month: " &lt;&lt; <name>month</name> &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "You chose day: " &lt;&lt; <name>day</name> &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+
+
+    <comment type="block">/*
+     * Part 1: compound conditional
+     */</comment>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "\n------ part 1: ------" &lt;&lt; <name>endl</name></expr>;</expr_stmt>   <comment type="line">// leave this line here</comment>
+    <if>if<condition>(<expr><name>day</name> == <name>SUN</name> || <name>day</name> == <name>SAT</name></expr>)</condition><then> 
+    <block>{
+        <expr_stmt><expr><name>cout</name> &lt;&lt; "It is a weekend!" &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+    }</block></then></if>
+
+
+    <comment type="block">/*
+     * Part 2 and 3: if/else
+     */</comment>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "\n------ part 2 and 3: ------" &lt;&lt; <name>endl</name></expr>;</expr_stmt>   <comment type="line">// leave this line here</comment>
+
+    <comment type="block">/* YOUR CODE HERE */</comment>
+    <if>if<condition>(<expr><name>month</name> &gt;= <name>JAN</name> &amp;&amp; <name>month</name> &lt;= <name>APR</name></expr>)</condition><then>
+        <expr_stmt><expr><name>cout</name> &lt;&lt; "Spring semester" &lt;&lt; <name>endl</name></expr>;</expr_stmt></then>
+    <else>else <if>if<condition>(<expr><name>month</name> &gt;= <name>MAY</name> &amp;&amp; <name>month</name> &lt;=<name>AUG</name></expr>)</condition><then>
+        <expr_stmt><expr><name>cout</name> &lt;&lt; "Summer semester" &lt;&lt; <name>endl</name></expr>;</expr_stmt></then>
+    <else>else <if>if<condition>(<expr><name>month</name> &gt;= <name>SEP</name> &amp;&amp; <name>month</name> &lt;= <name>DEC</name></expr>)</condition><then>
+        <expr_stmt><expr><name>cout</name> &lt;&lt; "Fall semester" &lt;&lt; <name>endl</name></expr>;</expr_stmt></then>
+    <else>else
+        <expr_stmt><expr><name>cout</name> &lt;&lt; "Invalid month!" &lt;&lt; <name>endl</name></expr>;</expr_stmt></else></if></else></if></else></if>
+
+
+    <comment type="block">/*
+     * Part 4: nested 'if'
+     */</comment>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "\n------ part 4: ------" &lt;&lt; <name>endl</name></expr>;</expr_stmt>   <comment type="line">// leave this line here</comment>
+
+    <comment type="block">/* YOUR CODE HERE */</comment>
+    <if>if<condition>(<expr><name>month</name> &lt;<name>JAN</name> || <name>month</name> &gt;<name>DEC</name></expr>)</condition><then>
+        <expr_stmt><expr><name>cout</name> &lt;&lt; "Invalid month!" &lt;&lt; <name>endl</name></expr>;</expr_stmt></then>
+    <else>else
+    <block>{    
+        <if>if <condition>(<expr><name>month</name> &lt; <name>MAY</name> || <name>month</name> &gt; <name>AUG</name></expr>)</condition><then>
+        <block>{    
+           <expr_stmt><expr><name>cout</name> &lt;&lt; "Non-summer semester" &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+           
+           <if>if <condition>(<expr><name>day</name> == <name>SUN</name> || <name>day</name> == <name>SAT</name></expr>)</condition><then>
+               <expr_stmt><expr><name>cout</name> &lt;&lt; "It is a weekend" &lt;&lt; <name>endl</name></expr>;</expr_stmt></then>
+           <else>else
+               <expr_stmt><expr><name>cout</name> &lt;&lt; "It is a weekday" &lt;&lt; <name>endl</name></expr>;</expr_stmt></else></if>
+        }</block></then>
+        <else>else 
+           <expr_stmt><expr><name>cout</name> &lt;&lt; "Summer semester" &lt;&lt; <name>endl</name></expr>;</expr_stmt></else></if>
+    }</block></else></if>
+
+    <return>return <expr>0</expr>;</return>
+}</block></function>
+
+</unit>

@@ -30,14 +30,17 @@
 		   </zeroOrMore>
 	  </element>
 	  <element name="then">
-		 <ref name="ifblock"/>
+		<ref name="ifblock"/>
 	  </element>
 	 <zeroOrMore>
 		<choice>
 			<text/>
 			<element name="else">
 			 	<text/>
-				<ref name="ifblock"/>
+				<choice>
+					<ref name="ifblock"/>
+					<ref name="if"/>
+				</choice>
 			</element>
 		</choice>
 	</zeroOrMore>
@@ -52,6 +55,7 @@
 				<choice>
 					<text/>
 					<ref name="expression_statement"/>
+					<ref name="if"/>
 				</choice>
 			 </oneOrMore>
 		</element>
