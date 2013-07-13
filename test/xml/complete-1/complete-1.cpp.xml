@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:cpp="http://www.sdml.info/srcML/cpp" language="C++" filename="src.cpp"><comment type="block">/*
+  A comment.
+ */</comment>
+
+<cpp:include>#<cpp:directive>include</cpp:directive> <cpp:file>&lt;iostream&gt;</cpp:file></cpp:include>
+
+<using>using namespace <name>std</name>;</using>
+
+<function><type><name>int</name></type> <name>main</name><parameter_list>()</parameter_list> <block>{
+  <comment type="line">// Prints welcome message...</comment>
+  <expr_stmt><expr><name>cout</name> &lt;&lt; "Welcome to Lab 1" &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+
+  <return>return <expr>0</expr>;</return>
+}</block></function>
+</unit>
