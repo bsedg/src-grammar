@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:cpp="http://www.sdml.info/srcML/cpp" language="C++" filename="complete-5.cpp">
+ <comment type="block">/********************************************************************
+  * complete-5.cpp
+  *
+  * Purpose: Demonstrate more conditional statements
+  *
+  ********************************************************************/</comment>
+
+
+<cpp:include>#<cpp:directive>include</cpp:directive> <cpp:file>&lt;iostream&gt;</cpp:file></cpp:include>
+<using>using namespace <name>std</name>;</using>
+
+<function><type><name>int</name></type> <name>main</name><parameter_list>()</parameter_list> <block>{
+    <comment type="line">// Constant symbols to use throughout the program.</comment>
+    <decl_stmt><decl><type><name>const</name> <name>int</name></type> <name>SUN</name> =<init> <expr>1</expr></init>, <name>MON</name> =<init> <expr>2</expr></init>, <name>TUE</name> =<init> <expr>3</expr></init>,
+            <name>WED</name> =<init> <expr>4</expr></init>, <name>THU</name> =<init> <expr>5</expr></init>, <name>FRI</name> =<init> <expr>6</expr></init>, <name>SAT</name> =<init> <expr>7</expr></init></decl>;</decl_stmt>
+    <decl_stmt><decl><type><name>const</name> <name>int</name></type> <name>JAN</name> =<init> <expr>1</expr></init>, <name>FEB</name> =<init> <expr>2</expr></init>, <name>MAR</name> =<init> <expr>3</expr></init>, <name>APR</name> =<init> <expr>4</expr></init>, <name>MAY</name> =<init> <expr>5</expr></init>, <name>JUN</name> =<init> <expr>6</expr></init>,
+            <name>JUL</name> =<init> <expr>7</expr></init>, <name>AUG</name> =<init> <expr>8</expr></init>, <name>SEP</name> =<init> <expr>9</expr></init>, <name>OCT</name> =<init> <expr>10</expr></init>, <name>NOV</name> =<init> <expr>11</expr></init>, <name>DEC</name> =<init> <expr>12</expr></init></decl>;</decl_stmt>
+    <decl_stmt><decl><type><name>const</name> <name>int</name></type> <name>SPRING</name> =<init> <expr>1</expr></init>, <name>SUMMER</name> =<init> <expr>2</expr></init>, <name>FALL</name> =<init> <expr>3</expr></init>, <name>INVALID</name> =<init> <expr>-1</expr></init></decl>;</decl_stmt>
+
+    <comment type="line">// variables to hold input.</comment>
+    <decl_stmt><decl><type><name>int</name></type> <name>month</name>, <name>day</name>, <name>season</name></decl>;</decl_stmt>
+    <decl_stmt><decl><type><name>bool</name></type> <name>is_morning_class</name> =<init> <expr>false</expr></init></decl>;</decl_stmt>
+
+    <comment type="line">// prompt user to enter month</comment>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Type a number " &lt;&lt; <name>JAN</name> &lt;&lt; "-" &lt;&lt; <name>DEC</name>
+            &lt;&lt; " to select a month:\n&gt;"</expr>;</expr_stmt>
+    <expr_stmt><expr><name>cin</name> &gt;&gt; <name>month</name></expr>;</expr_stmt>
+    <expr_stmt><expr><name>cin</name>.<call><name>ignore</name><argument_list>(<argument><expr>20000</expr></argument>, <argument><expr>'\n'</expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+    <comment type="line">// prompt user to enter day of the week</comment>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Type a number " &lt;&lt; <name>SUN</name> &lt;&lt; "-" &lt;&lt; <name>SAT</name>
+            &lt;&lt; " to select a day (Sunday - Saturday)\n&gt;"</expr>;</expr_stmt>
+    <expr_stmt><expr><name>cin</name> &gt;&gt; <name>day</name></expr>;</expr_stmt>
+    <expr_stmt><expr><name>cin</name>.<call><name>ignore</name><argument_list>(<argument><expr>20000</expr></argument>, <argument><expr>'\n'</expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+    <comment type="line">// prompt user to indicate if attending a morning class</comment>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Are you attending a morning class? (y/n)\n&gt;"</expr>;</expr_stmt>
+    <decl_stmt><decl><type><name>char</name></type> <name>tempchar</name> =<init> <expr><name>cin</name>.<call><name>get</name><argument_list>()</argument_list></call></expr></init></decl>;</decl_stmt>  <comment type="line">// get a single character</comment>
+    <expr_stmt><expr><name>cin</name>.<call><name>ignore</name><argument_list>(<argument><expr>20000</expr></argument>, <argument><expr>'\n'</expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    <expr_stmt><expr><name>is_morning_class</name> = (<name>tempchar</name> == 'y' || <name>tempchar</name> == 'Y')</expr>;</expr_stmt>
+
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "You chose month: " &lt;&lt; <name>month</name> &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "You chose day: " &lt;&lt; <name>day</name> &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Is morning class: " &lt;&lt; <name>is_morning_class</name> &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+
+    <comment type="block">/*
+     * Part 1: chained else/if
+     */</comment>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "\n------ part 1: ------" &lt;&lt; <name>endl</name></expr>;</expr_stmt>   <comment type="line">// leave this line here</comment>
+
+    <comment type="block">/* YOUR CODE HERE */</comment>
+    <if>if <condition>(<expr><name>day</name> == <name>MON</name> || <name>day</name> == <name>WED</name> || <name>day</name> == <name>FRI</name></expr>)</condition><then>
+        <expr_stmt><expr><name>cout</name> &lt;&lt; "Schedule A" &lt;&lt; <name>endl</name></expr>;</expr_stmt></then>
+    <else>else <if>if <condition>(<expr><name>day</name> == <name>TUE</name> || <name>day</name> == <name>THU</name></expr>)</condition><then>
+        <expr_stmt><expr><name>cout</name> &lt;&lt; "Schedule B" &lt;&lt; <name>endl</name></expr>;</expr_stmt></then>
+    <else>else <if>if <condition>(<expr><name>day</name> == <name>SAT</name></expr>)</condition><then>
+        <expr_stmt><expr><name>cout</name> &lt;&lt; "Schedule C" &lt;&lt; <name>endl</name></expr>;</expr_stmt></then>
+    <else>else 
+        <expr_stmt><expr><name>cout</name> &lt;&lt; "No schedule" &lt;&lt; <name>endl</name></expr>;</expr_stmt></else></if></else></if></else></if>
+
+
+    <comment type="block">/*
+     * Part 2: "switch" statement
+     */</comment>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "\n------ part 2: ------" &lt;&lt; <name>endl</name></expr>;</expr_stmt>   <comment type="line">// leave this line here</comment>
+
+    <comment type="block">/* YOUR CODE HERE */</comment>
+    <switch>switch<condition>(<expr><name>month</name></expr>)</condition>
+    <block>{
+        <case>case <expr><name>JAN</name></expr>:
+        </case><case>case <expr><name>FEB</name></expr>:
+        </case><case>case <expr><name>MAR</name></expr>:
+        </case><case>case <expr><name>APR</name></expr>: <expr_stmt><expr><name>cout</name> &lt;&lt; "Spring semester\n"</expr>;</expr_stmt>
+                  <expr_stmt><expr><name>season</name> = <name>SPRING</name></expr>;</expr_stmt>      
+                  <break>break;</break> 
+        </case><case>case <expr><name>MAY</name></expr>:    
+        </case><case>case <expr><name>JUN</name></expr>:
+        </case><case>case <expr><name>JUL</name></expr>:
+        </case><case>case <expr><name>AUG</name></expr>: <expr_stmt><expr><name>cout</name> &lt;&lt; "Summer semester\n"</expr>;</expr_stmt>
+                  <expr_stmt><expr><name>season</name> = <name>SUMMER</name></expr>;</expr_stmt>
+                  <break>break;</break>
+        </case><case>case <expr><name>SEP</name></expr>:
+        </case><case>case <expr><name>OCT</name></expr>:                 
+        </case><case>case <expr><name>NOV</name></expr>:
+        </case><case>case <expr><name>DEC</name></expr>: <expr_stmt><expr><name>cout</name> &lt;&lt; "Fall semester\n"</expr>;</expr_stmt>
+                  <expr_stmt><expr><name>season</name> = <name>FALL</name></expr>;</expr_stmt>
+                  <break>break;</break>
+        </case><default>default: <expr_stmt><expr><name>cout</name> &lt;&lt; "Invalid month!\n"</expr>;</expr_stmt>
+                 <expr_stmt><expr><name>season</name> = <name>INVALID</name></expr>;</expr_stmt>
+    </default>}</block></switch>   
+        
+    
+    <comment type="block">/*
+     * Part 3: ternary operator
+     */</comment>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "\n------ part 3: ------" &lt;&lt; <name>endl</name></expr>;</expr_stmt>   <comment type="line">// leave this line here</comment>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Have a good "</expr>;</expr_stmt>
+
+    <comment type="block">/** change this line **/</comment>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; (<name>is_morning_class</name> ? "day" : "evening")</expr>;</expr_stmt>
+
+    <expr_stmt><expr><name>cout</name> &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+
+    <comment type="block">/*
+     * Part 4: nested conditions
+     */</comment>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "\n------ part 4: ------" &lt;&lt; <name>endl</name></expr>;</expr_stmt>   <comment type="line">// leave this line here</comment>
+
+    <comment type="block">/** YOUR CODE HERE **/</comment>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Parking will be "</expr>;</expr_stmt>
+    
+    <if>if <condition>(<expr><name>month</name> &lt; <name>JAN</name> || <name>month</name> &gt; <name>DEC</name></expr>)</condition><then>
+        <expr_stmt><expr><name>cout</name> &lt;&lt; "imaginary\n"</expr>;</expr_stmt></then>
+    <else>else
+    <block>{
+        <if>if <condition>(<expr><name>season</name> == <name>SUMMER</name></expr>)</condition><then>
+            <if>if <condition>(<expr><name>day</name> &lt; <name>SUN</name> || <name>day</name> &gt; <name>SAT</name></expr>)</condition><then>
+                <expr_stmt><expr><name>cout</name> &lt;&lt; "imaginary" &lt;&lt; <name>endl</name></expr>;</expr_stmt></then>
+            <else>else   
+                <expr_stmt><expr><name>cout</name> &lt;&lt; (<name>is_morning_class</name> ? "moderate" : "easy") &lt;&lt; <name>endl</name></expr>;</expr_stmt></else></if></then>
+        <else>else
+        <block>{  
+            <switch>switch<condition>(<expr><name>day</name></expr>)</condition>
+            <block>{   
+                <case>case <expr><name>SUN</name></expr>:
+                </case><case>case <expr><name>SAT</name></expr>: <expr_stmt><expr><name>cout</name> &lt;&lt; "easy\n"</expr>;</expr_stmt>
+                          <break>break;</break>
+                </case><case>case <expr><name>FRI</name></expr>: <expr_stmt><expr><name>cout</name> &lt;&lt; "moderate\n"</expr>;</expr_stmt>
+                          <break>break;</break>           
+                </case><case>case <expr><name>MON</name></expr>:
+                </case><case>case <expr><name>TUE</name></expr>:
+                </case><case>case <expr><name>WED</name></expr>:
+                </case><case>case <expr><name>THU</name></expr>: <expr_stmt><expr><name>cout</name> &lt;&lt; "hard\n"</expr>;</expr_stmt>
+                            <break>break;</break>
+                </case><default>default: <expr_stmt><expr><name>cout</name> &lt;&lt; "imaginary\n"</expr>;</expr_stmt>
+            </default>}</block></switch>
+        }</block></else></if>   
+    }</block></else></if>
+
+
+    <comment type="block">/*
+     * Part 5: order of operations
+     */</comment>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "\n------ part 5: ------" &lt;&lt; <name>endl</name></expr>;</expr_stmt>   <comment type="line">// leave this line here</comment>
+
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "AND vs OR: "</expr>;</expr_stmt>
+    <comment type="block">/** use parentheses here: **/</comment>
+    <if>if<condition>(<expr>(true || true) &amp;&amp; false</expr>)</condition><then>  <block>{
+        <expr_stmt><expr><name>cout</name> &lt;&lt; "AND is evaluated first" &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+    }</block></then> <else>else <block>{
+        <expr_stmt><expr><name>cout</name> &lt;&lt; "OR is evaluated first (test passed)" &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+    }</block></else></if>
+
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "NOT vs AND: "</expr>;</expr_stmt>
+    <comment type="block">/** use parentheses here: **/</comment>
+    <if>if<condition>( <expr>! (true &amp;&amp; false)</expr>)</condition><then>
+    <block>{
+        <expr_stmt><expr><name>cout</name> &lt;&lt; "AND is evaluated first (test passed)" &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+    }</block></then> <else>else <block>{
+        <expr_stmt><expr><name>cout</name> &lt;&lt; "NOT is evaluated first" &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+    }</block></else></if>
+
+    <return>return <expr>0</expr>;</return>
+}</block></function>
+</unit>
