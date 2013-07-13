@@ -126,4 +126,36 @@
 				       </element>
 			      </element>
 	 </define>
+
+	 <a:documentation>
+		Do or do not, there is not try.
+
+		<do>do <block>{
+        	<expr_stmt><expr><name>num</name> = <call><name>input_an_int</name><argument_list>()</argument_list></call></expr>;</expr_stmt>
+        	<expr_stmt><expr><name>sum</name> += <name>num</name></expr>;</expr_stmt>
+    		}</block> while<condition>(<expr><name>num</name> != 0</expr>)</condition>;</do>
+	 </a:documentation>
+	 <define name="do">
+	 	 <element name="do">
+		 	  <text/>
+			  <element name="block">
+			  	   <text/>
+				   <oneOrMore>
+					<choice>
+						<text/>
+						<ref name="comment"/>
+						<ref name="expression_statement"/>
+						<ref name="declarative_statement"/>
+					</choice>
+				   </oneOrMore>
+			  </element>
+			  <text/> <!-- while -->
+			  <element name="condition">
+			  	 <text/> <!-- ( -->
+				 <ref name="expression"/>
+				 <text/> <!-- ) -->  
+			  </element>
+			  <text/>
+		 </element>
+	 </define>
 </grammar>

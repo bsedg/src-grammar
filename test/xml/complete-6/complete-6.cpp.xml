@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:cpp="http://www.sdml.info/srcML/cpp" language="C++" filename="complete-6.cpp"> <comment type="block">/********************************************************************
+  * complete-6.cpp
+  *
+  * Purpose: Demonstrate conditional loop structures
+  *
+  ********************************************************************/</comment>
+
+<cpp:include>#<cpp:directive>include</cpp:directive> <cpp:file>&lt;iostream&gt;</cpp:file></cpp:include>
+<using>using namespace <name>std</name>;</using>
+
+<comment type="line">// This is a function prototype.</comment>
+<comment type="line">// We will discuss them in later labs, but ignore it for now.</comment>
+<function_decl><type><name>int</name></type> <name>input_an_int</name><parameter_list>()</parameter_list>;</function_decl>
+
+<function><type><name>int</name></type> <name>main</name><parameter_list>()</parameter_list> <block>{
+    <comment type="line">// multipurpose reusable integer for loop counting.</comment>
+    <comment type="line">// remember to initialize before each use!</comment>
+    <decl_stmt><decl><type><name>int</name></type> <name>i</name></decl>;</decl_stmt>
+    
+    <comment type="line">// multipurpose reusable integer to hold user input.</comment>
+    <decl_stmt><decl><type><name>int</name></type> <name>num</name></decl>;</decl_stmt>
+    
+    <comment type="block">/*
+     * Part 1: off-by-one
+     */</comment>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "\n------ part 1 (off by one): ------" &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+
+    <expr_stmt><expr><name>num</name> = <call><name>input_an_int</name><argument_list>()</argument_list></call></expr>;</expr_stmt>     <comment type="line">// function call</comment>
+    <expr_stmt><expr><name>i</name> = 0</expr>;</expr_stmt>
+    <comment type="line">// this will loop from 0 to (n-1)</comment>
+    <while>while<condition>(<expr><name>i</name> &lt;= <name>num</name></expr>)</condition> <block>{
+        <expr_stmt><expr><name>cout</name> &lt;&lt; <name>i</name> &lt;&lt; " "</expr>;</expr_stmt>
+        <expr_stmt><expr>++<name>i</name></expr>;</expr_stmt>
+    }</block></while>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+
+
+    <comment type="block">/*
+     * Part 2: accumulate a sum
+     */</comment>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "\n------ part 2 (accumulator): ------" &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+
+    <comment type="block">/* YOUR CODE HERE */</comment>
+    <expr_stmt><expr><name>num</name> = <call><name>input_an_int</name><argument_list>()</argument_list></call></expr>;</expr_stmt>
+    
+    <expr_stmt><expr><name>i</name> = <name>num</name></expr>;</expr_stmt>
+    <decl_stmt><decl><type><name>int</name></type> <name>sum</name> =<init> <expr>0</expr></init></decl>;</decl_stmt>
+    
+    <while>while<condition>(<expr><name>i</name> &gt; 0</expr>)</condition>
+    <block>{
+        <expr_stmt><expr><name>sum</name> += <name>i</name></expr>;</expr_stmt>
+        <expr_stmt><expr>--<name>i</name></expr>;</expr_stmt>
+    }</block></while>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Sum of 0 to " &lt;&lt; <name>num</name> &lt;&lt; ": " &lt;&lt; <name>sum</name> &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+
+    <comment type="block">/*
+     * Part 3: for loop
+     */</comment>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "\n------ part 3 (sequence of squares): ------" &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+
+    <comment type="block">/* YOUR CODE HERE */</comment>
+    <expr_stmt><expr><name>num</name> = <call><name>input_an_int</name><argument_list>()</argument_list></call></expr>;</expr_stmt>
+    
+    <for>for(<init><expr><name>i</name> = 0</expr>;</init> <condition><expr><name>i</name> * <name>i</name> &lt;= <name>num</name></expr>;</condition> <incr><expr>++<name>i</name></expr></incr>)
+    <block>{
+        <expr_stmt><expr><name>cout</name> &lt;&lt; (<name>i</name> * <name>i</name>) &lt;&lt; " "</expr>;</expr_stmt>
+    }</block></for> 
+    <expr_stmt><expr><name>cout</name> &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+    <comment type="block">/*
+     * Part 4: do-while
+     */</comment>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "\n------ part 4 (do-while): ------" &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Enter a sequence of integers, then 0 when finished." &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+
+    <comment type="block">/* YOUR CODE HERE */</comment>
+    <expr_stmt><expr><name>sum</name> = 0</expr>;</expr_stmt>
+    
+    <do>do
+    <block>{
+        <expr_stmt><expr><name>num</name> = <call><name>input_an_int</name><argument_list>()</argument_list></call></expr>;</expr_stmt>
+        <expr_stmt><expr><name>sum</name> += <name>num</name></expr>;</expr_stmt>
+    }</block> while<condition>(<expr><name>num</name> != 0</expr>)</condition>;</do>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "The sum is " &lt;&lt; <name>sum</name> &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+
+
+    <comment type="block">/*
+     * Part 5: nested loops
+     */</comment>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "\n------ part 5 (nested chickens): ------" &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+
+    <comment type="block">/* YOUR CODE HERE */</comment>
+    <decl_stmt><decl><type><name>int</name></type> <name>hen</name>, <name>chick</name></decl>;</decl_stmt>
+    <decl_stmt><decl><type><name>int</name></type> <name>h</name>, <name>c</name></decl>;</decl_stmt>
+    
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Enter the number of hens: "</expr>;</expr_stmt>
+    <expr_stmt><expr><name>cin</name> &gt;&gt; <name>hen</name></expr>;</expr_stmt>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Enter the number of chicks per hen: "</expr>;</expr_stmt>
+    <expr_stmt><expr><name>cin</name> &gt;&gt; <name>chick</name></expr>;</expr_stmt>
+    <for>for (<init><expr><name>h</name> = 1</expr>;</init> <condition><expr><name>h</name> &lt;= <name>hen</name></expr>;</condition> <incr><expr><name>h</name>++</expr></incr>)
+    <block>{
+        <expr_stmt><expr><name>cout</name> &lt;&lt; "CLUCK!"</expr>;</expr_stmt>
+        <expr_stmt><expr><name>cout</name> &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+        <for>for (<init><expr><name>c</name> = 1</expr>;</init> <condition><expr><name>c</name> &lt;= <name>chick</name></expr>;</condition> <incr><expr><name>c</name>++</expr></incr>)
+        <block>{
+            <expr_stmt><expr><name>cout</name> &lt;&lt; "cheep!"</expr>;</expr_stmt>
+        }</block></for>
+        <expr_stmt><expr><name>cout</name> &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+    }</block></for>
+
+    <return>return <expr>0</expr>;</return>
+}</block></function>
+
+<comment type="line">// A function to get user input and try to interpret it as an integer.</comment>
+<comment type="line">// Do not modify this.</comment>
+<function><type><name>int</name></type> <name>input_an_int</name><parameter_list>()</parameter_list> <block>{
+    <decl_stmt><decl><type><name>int</name></type> <name>num</name> =<init> <expr>0</expr></init></decl>;</decl_stmt>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Type an integer, then press enter:\n&gt;" &lt;&lt; <name>flush</name></expr>;</expr_stmt>
+    <expr_stmt><expr><name>cin</name> &gt;&gt; <name>num</name></expr>;</expr_stmt>
+    <expr_stmt><expr><name>cin</name>.<call><name>ignore</name><argument_list>(<argument><expr>20000</expr></argument>, <argument><expr>'\n'</expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    <return>return <expr><name>num</name></expr>;</return>
+}</block></function>
+
+</unit>
