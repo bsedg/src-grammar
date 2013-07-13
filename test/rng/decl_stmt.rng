@@ -13,6 +13,8 @@
 	 <include href="../../src/includes/statements.rng"/>
 	 <include href="../../src/includes/functions.rng"/>
 	 <include href="../../src/includes/comments.rng"/>
+	 <include href="../../src/includes/loops.rng"/>
+	 <include href="../../src/includes/conditionals.rng"/>
 
 	 <start>
 		<element name="unit">

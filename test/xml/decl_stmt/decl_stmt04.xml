@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:cpp="http://www.sdml.info/srcML/cpp" language="C++" filename="decl_stmt.cpp">
+<decl_stmt><decl><type><name>double</name></type> <name><name>numbers</name><index>[<expr><name>ARRAYLEN</name></expr>]</index></name>=<init> <expr><block>{<expr>0.0</expr>, <expr>1.1</expr>, <expr>2.2</expr>,<expr>3.3</expr>, <expr>4.4</expr>, <expr>5.5</expr>, <expr>6.6</expr>, <expr>7.7</expr>, <expr>8.8</expr>, <expr>9.9</expr>}</block></expr></init></decl>;
+</decl_stmt>
+</unit>
