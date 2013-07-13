@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:cpp="http://www.sdml.info/srcML/cpp" language="C++" filename="complete-9.cpp"> <comment type="block">/********************************************************************
+  * complete-9.cpp
+  *
+  * Purpose: Introduce the creation and use of arrays
+  *
+  ********************************************************************/</comment>
+
+<cpp:include>#<cpp:directive>include</cpp:directive> <cpp:file>&lt;iostream&gt;</cpp:file></cpp:include>
+<using>using namespace <name>std</name>;</using>
+
+<comment type="line">//Prototype</comment>
+<function_decl><type><name>void</name></type> <name>print_array</name><parameter_list>(<param><decl><type><name>double</name>[]</type></decl></param>, <param><decl><type><name>int</name></type></decl></param>)</parameter_list>;</function_decl>
+
+<comment type="line">// Variables.</comment>
+<decl_stmt><decl><type><name>double</name></type> <name>total</name>=<init><expr>0</expr></init></decl>;</decl_stmt>
+
+<function><type><name>int</name></type> <name>main</name><parameter_list>()</parameter_list> <block>{
+    <decl_stmt><decl><type><name>const</name> <name>int</name></type> <name>ARRAYLEN</name> =<init> <expr>10</expr></init></decl>;</decl_stmt>
+    <comment type="block">/* Do part 1 here: */</comment>
+    <decl_stmt><decl><type><name>double</name></type> <name><name>numbers</name><index>[<expr><name>ARRAYLEN</name></expr>]</index></name>=<init> <expr><block>{<expr>0.0</expr>, <expr>1.1</expr>, <expr>2.2</expr>, <expr>3.3</expr>, <expr>4.4</expr>, <expr>5.5</expr>, <expr>6.6</expr>, <expr>7.7</expr>, <expr>8.8</expr>, <expr>9.9</expr>}</block></expr></init></decl>;</decl_stmt>
+
+    <comment type="block">/* Do part 2 here: */</comment>
+    <expr_stmt><expr><name>cout</name>&lt;&lt;"The last element's value is:" &lt;&lt; <name><name>numbers</name><index>[<expr>9</expr>]</index></name>&lt;&lt;<name>endl</name></expr>;</expr_stmt>
+
+    <comment type="block">/* Do parts 3 and 4 here: */</comment>
+    <expr_stmt><expr><call><name>print_array</name><argument_list>(<argument><expr><name>numbers</name></expr></argument>, <argument><expr><name>ARRAYLEN</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+    <comment type="block">/* Do part 5 here: */</comment>
+    <for>for (<init><decl><type><name>int</name></type> <name>i</name>=<init><expr>0</expr></init></decl>;</init> <condition><expr><name>i</name>&lt; <name>ARRAYLEN</name></expr>;</condition> <incr><expr><name>i</name>++</expr></incr>) <block>{
+        <expr_stmt><expr><name><name>numbers</name><index>[<expr><name>i</name></expr>]</index></name> = (10 * <name><name>numbers</name><index>[<expr><name>i</name></expr>]</index></name>)</expr>;</expr_stmt>
+    }</block></for>
+
+    <expr_stmt><expr><call><name>print_array</name><argument_list>(<argument><expr><name>numbers</name></expr></argument>, <argument><expr><name>ARRAYLEN</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    
+    <comment type="block">/* Do part 6 here: */</comment>
+    <for>for (<init><decl><type><name>int</name></type> <name>j</name>=<init><expr>0</expr></init></decl>;</init> <condition><expr><name>j</name> &lt; <name>ARRAYLEN</name></expr>;</condition> <incr><expr><name>j</name>++</expr></incr>) <block>{
+      <expr_stmt><expr><name>total</name> += <name><name>numbers</name><index>[<expr><name>j</name></expr>]</index></name></expr>;</expr_stmt>
+    }</block></for>
+    <expr_stmt><expr><name>cout</name>&lt;&lt;"Sum of array elements:"&lt;&lt;<name>total</name></expr>;</expr_stmt>
+    <expr_stmt><expr><name>cout</name>&lt;&lt;<name>endl</name></expr>;</expr_stmt>
+
+    <comment type="block">/* Do part 7 here: */</comment>
+    <decl_stmt><decl><type><name>char</name></type> <name><name>who</name><index>[]</index></name> =<init> <expr><block>{<expr>"Charles Babbage"</expr>}</block></expr></init></decl>;</decl_stmt>
+    <expr_stmt><expr><name>cout</name>&lt;&lt;<name>who</name></expr>;</expr_stmt>
+
+    <return>return <expr>0</expr>;</return>
+}</block></function>
+
+<comment type="line">//Print the array.</comment>
+<function><type><name>void</name></type> <name>print_array</name><parameter_list>(<param><decl><type><name>double</name></type> <name><name>input</name><index>[]</index></name></decl></param>, <param><decl><type><name>int</name></type> <name>length</name></decl></param>)</parameter_list><block>{
+    
+    <for>for(<init><decl><type><name>int</name></type> <name>i</name>=<init><expr>0</expr></init></decl>;</init><condition><expr><name>i</name> &lt; <name>length</name></expr>;</condition><incr><expr>++<name>i</name></expr></incr>) <block>{
+        <expr_stmt><expr><name>cout</name> &lt;&lt; <name><name>input</name><index>[<expr><name>i</name></expr>]</index></name> &lt;&lt; " "</expr>;</expr_stmt>
+    }</block></for>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+}</block></function>
+</unit>
