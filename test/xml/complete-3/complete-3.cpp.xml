@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:cpp="http://www.sdml.info/srcML/cpp" language="C++" filename="complete-3.cpp"><comment type="block">/********************************************************************
+ *
+ * complete-3.cpp
+ *
+ *
+ * Purpose: Demonstration of C++ library headers
+ *
+ * This program will display (on the console) a table
+ * containing 4 usernames along with a score for each.
+ *
+ ********************************************************************/</comment>
+ 
+<cpp:include>#<cpp:directive>include</cpp:directive> <cpp:file>&lt;iostream&gt;</cpp:file></cpp:include>
+<cpp:include>#<cpp:directive>include</cpp:directive> <cpp:file>&lt;iomanip&gt;</cpp:file></cpp:include>
+<cpp:include>#<cpp:directive>include</cpp:directive> <cpp:file>&lt;cmath&gt;</cpp:file></cpp:include>
+<cpp:include>#<cpp:directive>include</cpp:directive> <cpp:file>&lt;string&gt;</cpp:file></cpp:include>
+<using>using namespace <name>std</name>;</using>
+
+<function><type><name>int</name></type> <name>main</name><parameter_list>()</parameter_list> <block>{
+
+    <comment type="line">// four scores for four students</comment>
+    <decl_stmt><decl><type><name>int</name></type> <name>score1</name> =<init> <expr>23</expr></init></decl>;</decl_stmt>
+    <decl_stmt><decl><type><name>int</name></type> <name>score2</name> =<init> <expr>54</expr></init></decl>;</decl_stmt>
+    <decl_stmt><decl><type><name>int</name></type> <name>score3</name> =<init> <expr>7</expr></init></decl>;</decl_stmt>
+    <decl_stmt><decl><type><name>int</name></type> <name>score4</name> =<init> <expr>211</expr></init></decl>;</decl_stmt>
+    <decl_stmt><decl><type><name>string</name></type> <name>person1</name> =<init> <expr>"Ava"</expr></init></decl>;</decl_stmt>
+    <decl_stmt><decl><type><name>string</name></type> <name>person2</name> =<init> <expr>"Tom"</expr></init></decl>;</decl_stmt>
+    <decl_stmt><decl><type><name>string</name></type> <name>person3</name> =<init> <expr>"David"</expr></init></decl>;</decl_stmt>
+    <decl_stmt><decl><type><name>string</name></type> <name>person4</name> =<init> <expr>"Kathy"</expr></init></decl>;</decl_stmt>
+
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Please type four persons' name.\n"</expr>;</expr_stmt>
+    <expr_stmt><expr><call><name>getline</name><argument_list>(<argument><expr><name>cin</name></expr></argument>, <argument><expr><name>person1</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    <expr_stmt><expr><call><name>getline</name><argument_list>(<argument><expr><name>cin</name></expr></argument>, <argument><expr><name>person2</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    <expr_stmt><expr><call><name>getline</name><argument_list>(<argument><expr><name>cin</name></expr></argument>, <argument><expr><name>person3</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    <expr_stmt><expr><call><name>getline</name><argument_list>(<argument><expr><name>cin</name></expr></argument>, <argument><expr><name>person4</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+   
+    <comment type="line">// user inputs all four scores</comment>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Please type four (integer) scores\n&gt;"</expr>;</expr_stmt>
+    <expr_stmt><expr><name>cin</name> &gt;&gt; <name>score1</name> &gt;&gt; <name>score2</name> &gt;&gt; <name>score3</name> &gt;&gt; <name>score4</name></expr>;</expr_stmt>
+    <expr_stmt><expr><name>cin</name>.<call><name>ignore</name><argument_list>(<argument><expr>20000</expr></argument>, <argument><expr>'\n'</expr></argument>)</argument_list></call></expr>;</expr_stmt>
+  
+    <comment type="line">// calculate the average score</comment>
+    <decl_stmt><decl><type><name>double</name></type> <name>average</name> =<init> <expr><call>(<name>double</name>)<argument_list>(<argument><expr><name>score1</name> + <name>score2</name> + <name>score3</name> + <name>score4</name></expr></argument>)</argument_list></call> / 4</expr></init></decl>;</decl_stmt>
+
+    <comment type="line">// output a table of scores</comment>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; <call><name>setw</name><argument_list>(<argument><expr>22</expr></argument>)</argument_list></call> &lt;&lt; <name>left</name> &lt;&lt; "PERSON" &lt;&lt; <call><name>setw</name><argument_list>(<argument><expr>22</expr></argument>)</argument_list></call> &lt;&lt; <name>right</name> 
+         &lt;&lt; "SCORE" &lt;&lt; <call><name>setw</name><argument_list>(<argument><expr>22</expr></argument>)</argument_list></call> &lt;&lt; "Difference" &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; <call><name>setw</name><argument_list>(<argument><expr>22</expr></argument>)</argument_list></call> &lt;&lt; <name>left</name> &lt;&lt; <name>person1</name> &lt;&lt; <call><name>setw</name><argument_list>(<argument><expr>22</expr></argument>)</argument_list></call> &lt;&lt; <name>right</name> 
+         &lt;&lt; <name>score1</name> &lt;&lt; <call><name>setw</name><argument_list>(<argument><expr>22</expr></argument>)</argument_list></call> &lt;&lt; <call><name>abs</name><argument_list>( <argument><expr><name>score1</name> - <name>average</name></expr></argument> )</argument_list></call> &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; <call><name>setw</name><argument_list>(<argument><expr>22</expr></argument>)</argument_list></call> &lt;&lt; <name>left</name> &lt;&lt; <name>person2</name> &lt;&lt; <call><name>setw</name><argument_list>(<argument><expr>22</expr></argument>)</argument_list></call> &lt;&lt; <name>right</name> 
+         &lt;&lt; <name>score2</name> &lt;&lt; <call><name>setw</name><argument_list>(<argument><expr>22</expr></argument>)</argument_list></call> &lt;&lt; <call><name>abs</name><argument_list>(<argument><expr><name>score2</name> - <name>average</name></expr></argument> )</argument_list></call> &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; <call><name>setw</name><argument_list>(<argument><expr>22</expr></argument>)</argument_list></call> &lt;&lt; <name>left</name> &lt;&lt; <name>person3</name> &lt;&lt; <call><name>setw</name><argument_list>(<argument><expr>22</expr></argument>)</argument_list></call> &lt;&lt; <name>right</name> 
+         &lt;&lt; <name>score3</name> &lt;&lt; <call><name>setw</name><argument_list>(<argument><expr>22</expr></argument>)</argument_list></call> &lt;&lt; <call><name>abs</name><argument_list>(<argument><expr><name>score3</name> - <name>average</name></expr></argument> )</argument_list></call> &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; <call><name>setw</name><argument_list>(<argument><expr>22</expr></argument>)</argument_list></call> &lt;&lt; <name>left</name> &lt;&lt; <name>person4</name> &lt;&lt; <call><name>setw</name><argument_list>(<argument><expr>22</expr></argument>)</argument_list></call> &lt;&lt; <name>right</name> 
+         &lt;&lt; <name>score4</name> &lt;&lt; <call><name>setw</name><argument_list>(<argument><expr>22</expr></argument>)</argument_list></call> &lt;&lt; <call><name>abs</name><argument_list>(<argument><expr><name>score4</name> - <name>average</name></expr></argument> )</argument_list></call> &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; <call><name>setw</name><argument_list>(<argument><expr>22</expr></argument>)</argument_list></call> &lt;&lt; <name>left</name> &lt;&lt; "AVERAGE:" &lt;&lt; <call><name>setw</name><argument_list>(<argument><expr>22</expr></argument>)</argument_list></call> &lt;&lt; <name>right</name> 
+         &lt;&lt; <call><name>setw</name><argument_list>(<argument><expr>22</expr></argument>)</argument_list></call> &lt;&lt; <name>average</name> &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+
+    <return>return <expr>0</expr>;</return>
+}</block></function>
+
+</unit>
