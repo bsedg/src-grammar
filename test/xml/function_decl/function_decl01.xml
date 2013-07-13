@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:cpp="http://www.sdml.info/srcML/cpp" language="C++" filename="function_decl.cpp">
+<function_decl><type><name>int</name></type> <name>input_an_int</name><parameter_list>()</parameter_list>;</function_decl>
+</unit>

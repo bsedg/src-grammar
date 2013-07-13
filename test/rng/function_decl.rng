@@ -1,0 +1,28 @@
+<grammar xmlns="http://relaxng.org/ns/structure/1.0" 
+	 xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+	 ns="http://www.sdml.info/srcML/src"
+	 >
+
+	 <a:documentation>
+	     RELAX NG schema for function calls
+
+	     Brandon Sedgwick
+	     bmsedgwick@gmail.com
+	     2013
+	 </a:documentation>
+
+	 <include href="../../src/includes/functions.rng"/>
+	 <include href="../../src/includes/statements.rng"/>
+
+	 <start>
+		<element name="unit">
+				 <oneOrMore>
+					<choice>
+						<attribute name="filename"/>
+						<attribute name="language"/>
+					</choice>
+				</oneOrMore>
+				<ref name="function_declaration"/>
+		</element>
+	 </start>
+</grammar>
