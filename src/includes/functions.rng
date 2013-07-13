@@ -11,6 +11,31 @@
 	     2013
 	 </a:documentation>
 
+	 <a:documentation>
+		Not sure if this definition should be in here, with functions,
+		or in statements with declarative statements.
+
+		<function_decl><type><name>int</name></type> <name>input_an_int</name>
+			<parameter_list>()</parameter_list>;</function_decl>
+	 </a:documentation>
+	 <define name="function_declaration">
+	 	 <element name="function_decl">
+		 	  <element name="type">
+			  	   <element name="name">
+				   	    <text/>
+				   </element>
+			  </element>
+			  <text/> <!-- whitespace -->
+			  <element name="name"> <!-- name of function -->
+			  	   <text/>
+			  </element>
+			  <element name="parameter_list">
+			  	   <text/>
+			  </element>
+			  <text/>
+		 </element>
+	 </define>
+
          <define name="function_call">
 	    <element name="call">
 	    	     <optional><text/></optional>

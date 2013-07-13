@@ -11,34 +11,48 @@
 	     2013
 	 </a:documentation>
 
+	 <a:documentation>
+
+		<while>while<condition>(<expr><name>i</name> &lt;= <name>num</name></expr>)</condition> <block>{
+         	   <expr_stmt><expr><name>cout</name> &lt;&lt; <name>i</name> &lt;&lt; " "</expr>;</expr_stmt>
+        	   <expr_stmt><expr>++<name>i</name></expr>;</expr_stmt>
+    		}</block></while>
+	 </a:documentation>
+	 <define name="while">
+	 	 <element name="while">
+		 	  <text/>
+			  <element name="condition">
+			  	   <text/>
+				   <ref name="expression"/>
+				   <text/>
+			  </element>
+			  <text/>
+			  <element name="block">
+			  	   <oneOrMore>
+					<choice>
+						<text/>
+						<ref name="comment"/>
+						<ref name="declarative_statement"/>
+						<ref name="expression_statement"/>
+						<ref name="if"/>
+						<ref name="switch"/>
+						<ref name="for"/>
+						<ref name="while"/>
+					</choice>
+				   </oneOrMore>
+			  </element>
+		 </element>
+	 </define>
+
          <define name="for">
 	    <element name="for">
 	    	     <text/>
 		     <element name="init">
-		     	      <element name="decl">
-			      	       <element name="type">
-				       		<element name="name">
-							 <text/>
-						</element>
-				       </element>
-				       <text/>
-				       <element name="name">
-				       		<text/>
-				       </element>
-				       <text/>
-				       <element name="init">
-				       		<element name="expr">
-							 <optional><text/></optional>
-							 <optional>
-								<element name="name">
-									 <text/>
-								</element>
-							 </optional>
-							 <optional><text/></optional>
-						</element>
-				       </element>
-			      </element>
-		     	      <text/>
+		     	      <choice>
+				<ref name="declaration"/>
+		     	      	<ref name="expression"/>
+			      </choice>
+			      <text/>
 		     </element>
 		     <element name="condition">
 		     	      <element name="expr">
@@ -49,7 +63,13 @@
 				       <element name="name">
 				       		<text/>
 				       </element>
-				       <optional><text/></optional>
+				       <optional>
+						<text/>
+						<element name="name">
+							 <text/>
+						</element>
+				       </optional>
+				       <text/>
 			      </element>
 			      <text/>
 		     </element>
@@ -79,5 +99,31 @@
 	    	     <optional><text/></optional>
 	    </element>
 	    <optional><text/></optional>
+	 </define>
+
+	 <define name="fordecl">
+			      	<element name="decl">
+			      	       <element name="type">
+				       		<element name="name">
+							 <text/>
+						</element>
+				       </element>
+				       <text/>
+				       <element name="name">
+				       		<text/>
+				 	</element>
+				<text/>
+				<element name="init">
+				       		<element name="expr">
+							 <optional><text/></optional>
+							 <optional>
+								<element name="name">
+									 <text/>
+								</element>
+							 </optional>
+							 <optional><text/></optional>
+						</element>
+				       </element>
+			      </element>
 	 </define>
 </grammar>

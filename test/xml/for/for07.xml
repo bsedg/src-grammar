@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:cpp="http://www.sdml.info/srcML/cpp" language="C++" filename="for.cpp" >
+<for>for (<init><expr><name>h</name> = 1</expr>;</init> <condition><expr><name>h</name> &lt;= <name>hen</name></expr>;</condition> <incr><expr><name>h</name>++</expr></incr>)
+    <block>{
+        <expr_stmt><expr><name>cout</name> &lt;&lt; "CLUCK!"</expr>;</expr_stmt>
+        <expr_stmt><expr><name>cout</name> &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+        <for>for (<init><expr><name>c</name> = 1</expr>;</init> <condition><expr><name>c</name> &lt;= <name>chick</name></expr>;</condition> <incr><expr><name>c</name>++</expr></incr>)
+        <block>{
+            <expr_stmt><expr><name>cout</name> &lt;&lt; "cheep!"</expr>;</expr_stmt>
+        }</block></for>
+        <expr_stmt><expr><name>cout</name> &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+    }</block></for>
+</unit>

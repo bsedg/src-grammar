@@ -72,29 +72,37 @@
 	</a:documentation>
 	<define name="declarative_statement">
 		<element name="decl_stmt">
-			 <element name="decl">
-				<element name="type">
+			 <ref name="declaration"/>
+		</element>
+	</define>
+
+	<a:documentation>
+		<decl><type><name>int</name></type> <name>i</name>=<init><expr>0</expr></init></decl>
+	</a:documentation>
+	<define name="declaration">
+		<element name="decl">
+			 <element name="type">
+			 	  <element name="name">
+				  	   <text/>
+				  </element>
+				  <text/>
+				  <optional>
 					<element name="name">
 						 <text/>
 					</element>
-					<text/>
-					<optional>
-					     <element name="name">
-					           <text/>
-					     </element>
-					</optional>
-					</element>
-					<oneOrMore>
-						<optional><text/></optional>
-					     <element name="name">
-					           <text/>
-					     </element>
-					     <text/>
-					     <optional>
-						<element name="init">
-					     	<text/>
-					     	<element name="expr">
-					     	<oneOrMore>
+				  </optional>
+			</element>
+			<oneOrMore>
+				<optional><text/></optional>
+				<element name="name">
+					 <text/>
+				</element>
+				<text/>
+				<optional>
+					<element name="init">
+						 <optional><text/></optional> <!-- no space between = and right side -->
+					     	 <element name="expr">
+					     	 <oneOrMore>
 					         <choice>
 							<text/>
 							<ref name="function_call"/>
@@ -117,13 +125,12 @@
 								 <text/>
 							</element>
 						 </choice>
-					     	</oneOrMore>
+					     	 </oneOrMore>
 					     </element>
-					     </element>
-					     </optional> <!-- optional init for a declaration -->
-					     </oneOrMore>
-				       </element>
-				       <text/>
-			</element>
+					</element>
+					</optional> <!-- optional init for a declaration -->
+			</oneOrMore>
+		</element>
+		<text/>
 	</define>
 </grammar>
