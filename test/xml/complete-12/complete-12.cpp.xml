@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:cpp="http://www.sdml.info/srcML/cpp" language="C++" filename="complete-12.cpp"> <comment type="block">/********************************************************************
+  * complete-12.cpp
+  *
+  * Purpose: Demonstrate the use of pointers
+  *
+  ********************************************************************/</comment>
+
+<cpp:include>#<cpp:directive>include</cpp:directive> <cpp:file>&lt;iostream&gt;</cpp:file></cpp:include>
+<using>using namespace <name>std</name>;</using>
+
+<comment type="line">// function prototypes</comment>
+<function_decl><type><name>void</name></type> <name>print_array</name><parameter_list>(<param><decl><type><name>int</name> *</type></decl></param>, <param><decl><type><name>int</name></type></decl></param>)</parameter_list>;</function_decl>
+<function_decl><type><name>void</name></type> <name>print_address_and_value</name><parameter_list>(<param><decl><type><name>const</name> <name>int</name> *</type></decl></param>)</parameter_list>;</function_decl>
+
+<function><type><name>int</name></type> <name>main</name><parameter_list>()</parameter_list> <block>{
+    <decl_stmt><decl><type><name>int</name></type> <name>x</name> =<init> <expr>2</expr></init></decl>;</decl_stmt>
+    <decl_stmt><decl><type><name>int</name> *</type><name>ptr</name></decl>;</decl_stmt> <comment type="line">// declaring pointer to int</comment>
+    <decl_stmt><decl><type><name>const</name> <name>int</name></type> <name>SEQUENCE_LENGTH</name> =<init> <expr>8</expr></init></decl>;</decl_stmt>
+    <decl_stmt><decl><type><name>int</name></type> <name><name>seq</name><index>[<expr><name>SEQUENCE_LENGTH</name></expr>]</index></name> =<init> <expr><block>{<expr>10</expr>,<expr>20</expr>,<expr>30</expr>,<expr>40</expr>,<expr>50</expr>,<expr>60</expr>,<expr>70</expr>,<expr>80</expr>}</block></expr></init></decl>;</decl_stmt>
+
+    <comment type="block">/**** Part 1: get an address ****/</comment>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "---- Part 1: get an address ----\n"</expr>;</expr_stmt>
+    <expr_stmt><expr><name>ptr</name> = &amp;<name>x</name></expr>;</expr_stmt>
+    <expr_stmt><expr><name>cout</name>&lt;&lt;<name>endl</name></expr>;</expr_stmt>
+
+    <comment type="block">/* YOUR CODE HERE */</comment>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "ptr now holds the address: " &lt;&lt; <name>ptr</name> &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+    <expr_stmt><expr><name>cout</name>&lt;&lt;<name>endl</name></expr>;</expr_stmt>
+    
+    <comment type="block">/**** Part 2: set a dereferenced value ****/</comment>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "---- Part 2: dereferencing ----\n"</expr>;</expr_stmt>
+    <expr_stmt><expr>*<name>ptr</name> = 55</expr>;</expr_stmt>
+
+    <comment type="block">/* YOUR CODE HERE */</comment>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "x is: " &lt;&lt; <name>x</name> &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+    <expr_stmt><expr><name>cout</name>&lt;&lt;<name>endl</name></expr>;</expr_stmt>
+    
+    <comment type="block">/**** Part 3: alias an array ****/</comment>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "---- Part 3: alias an array ----\n"</expr>;</expr_stmt>
+
+    <comment type="block">/* YOUR CODE HERE */</comment>
+    <expr_stmt><expr><name>ptr</name> = <name>seq</name></expr>;</expr_stmt>
+    
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "value of seq (location of array data): " &lt;&lt; <name>seq</name> &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "value of ptr (where ptr points):       " &lt;&lt; <name>ptr</name> &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+
+    <comment type="block">/* MODIFY THIS LINE: */</comment>
+    <expr_stmt><expr><call><name>print_array</name><argument_list>(<argument><expr><name>ptr</name></expr></argument>, <argument><expr><name>SEQUENCE_LENGTH</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    <expr_stmt><expr><name>cout</name>&lt;&lt;<name>endl</name></expr>;</expr_stmt>
+    
+    <comment type="block">/**** Part 4: pointer arithmetic ****/</comment>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "---- Part 4: pointer arithmetic ----\n"</expr>;</expr_stmt>
+
+    <comment type="block">/* YOUR CODE HERE */</comment>
+    <decl_stmt><decl><type><name>int</name> *</type><name>element</name> =<init> <expr>&amp;<name><name>seq</name><index>[<expr>0</expr>]</index></name></expr></init></decl>;</decl_stmt>
+    <decl_stmt><decl><type><name>int</name> *</type><name>last</name> =<init> <expr>&amp;<name><name>seq</name><index>[<expr><name>SEQUENCE_LENGTH</name></expr>]</index></name></expr></init></decl>;</decl_stmt> 
+    
+    <while>while<condition>(<expr><name>element</name> &lt; <name>last</name></expr>)</condition><block>{
+        <expr_stmt><expr><call><name>print_address_and_value</name><argument_list>(<argument><expr><name>element</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+        <expr_stmt><expr><name>element</name>++</expr>;</expr_stmt>
+    }</block></while>
+   
+    <expr_stmt><expr><name>cout</name>&lt;&lt;<name>endl</name></expr>;</expr_stmt>
+    
+    <comment type="block">/**** Part 5: const ptr vs. ptr to const ****/</comment>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "---- Part 5: pointers and constants ----\n"</expr>;</expr_stmt>
+    <expr_stmt><expr><name>x</name> = 10</expr>;</expr_stmt>
+    <decl_stmt><decl><type><name>int</name> *<name>const</name></type> <name>annoying_ptr</name> =<init> <expr>&amp;<name>x</name></expr></init></decl>;</decl_stmt>   <comment type="line">// modify this line</comment>
+
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "x (before) is: " &lt;&lt; <name>x</name> &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+    <expr_stmt><expr><call><name>print_address_and_value</name><argument_list>(<argument><expr><name>annoying_ptr</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+    <expr_stmt><expr>*<name>annoying_ptr</name> = 20</expr>;</expr_stmt>   <comment type="line">// uncomment this line</comment>
+
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "x (after) is: " &lt;&lt; <name>x</name> &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+    <expr_stmt><expr><call><name>print_address_and_value</name><argument_list>(<argument><expr><name>annoying_ptr</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+    <expr_stmt><expr><name>cout</name>&lt;&lt;<name>endl</name></expr>;</expr_stmt>
+    
+    <comment type="block">/**** Part 6: dynamic allocation ****/</comment>
+    
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "---- Part 6: dynamic allocation ----\n"</expr>;</expr_stmt>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Input a desired array size\n&gt;"</expr>;</expr_stmt>
+    <expr_stmt><expr><name>cin</name> &gt;&gt; <name>x</name></expr>;</expr_stmt>
+     
+    <comment type="line">// demonstrate dynamic allocation:</comment>
+    <expr_stmt><expr><name>ptr</name> = new <name><name>int</name><index>[<expr><name>x</name></expr>]</index></name></expr>;</expr_stmt>
+    <for>for(<init><decl><type><name>int</name></type> <name>i</name>=<init><expr>0</expr></init></decl>;</init><condition><expr><name>i</name>&lt;<name>x</name></expr>;</condition><incr><expr>++<name>i</name></expr></incr>) <block>{
+        <expr_stmt><expr><name><name>ptr</name><index>[<expr><name>i</name></expr>]</index></name> = <name>i</name></expr>;</expr_stmt>
+    }</block></for>
+    <expr_stmt><expr><call><name>print_array</name><argument_list>(<argument><expr><name>ptr</name></expr></argument>, <argument><expr><name>x</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+    <comment type="line">// demonstrate dynamic deallocation:</comment>
+    <expr_stmt><expr>delete<index>[]</index> <name>ptr</name></expr>;</expr_stmt>
+    
+    <return>return <expr>0</expr>;</return>
+}</block></function>
+
+<comment type="line">//////////////////////////////////////////////////</comment>
+<comment type="line">// utility functions. do not modify.</comment>
+
+<function><type><name>void</name></type> <name>print_address_and_value</name><parameter_list>(<param><decl><type><name>const</name> <name>int</name> *</type><name>p</name></decl></param>)</parameter_list> <block>{
+    <expr_stmt><expr><name>cout</name> &lt;&lt; <name>p</name> &lt;&lt; " : " &lt;&lt; *<name>p</name> &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+}</block></function>
+
+<function><type><name>void</name></type> <name>print_array</name><parameter_list>(<param><decl><type><name>int</name></type> <name><name>ar</name><index>[]</index></name></decl></param>, <param><decl><type><name>int</name></type> <name>len</name></decl></param>)</parameter_list> <block>{
+    <for>for(<init><decl><type><name>int</name></type> <name>i</name>=<init><expr>0</expr></init></decl>;</init><condition><expr><name>i</name>&lt;<name>len</name></expr>;</condition><incr><expr>++<name>i</name></expr></incr>)<block>{
+        <expr_stmt><expr><name>cout</name> &lt;&lt; <name><name>ar</name><index>[<expr><name>i</name></expr>]</index></name> &lt;&lt; " "</expr>;</expr_stmt>
+    }</block></for>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+}</block></function>
+
+</unit>

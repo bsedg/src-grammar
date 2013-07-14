@@ -37,13 +37,22 @@
 			</element>
 	   </define>
 
+	   <a:documentation>
+
+		<expr>delete<index>[]</index> <name>ptr</name></expr>
+	   </a:documentation>
 	   <define name="expression">
 	   	 <element name="expr">
 		 	  <zeroOrMore>
 				<optional><text/></optional>
-				<element name="name">
-				   <oneOrMore>
-				   	<choice>
+				<choice>
+					<!-- delete[] ptr -->
+					<element name="index">
+						 <text/>
+					</element>
+					<element name="name">
+				   	<oneOrMore>
+						<choice>
 						<text/>
 						<element name="name">
 							 <text/>
@@ -60,10 +69,11 @@
 							 </element>
 							 <text/>
 						</element>
-					</choice>
-				   </oneOrMore>
-				</element>
+						</choice>
+				   	</oneOrMore>
+				   </element>
 				<text/>
+				</choice>
 			</zeroOrMore>
 			<zeroOrMore>
 				<choice>
@@ -112,6 +122,12 @@
 		
 		<decl><type><name>int</name></type> <name><name>ar</name>
 			<index>[]</index><index>[<expr>4</expr>]</index></name></decl>
+
+		<decl><type><name>const</name> <name>int</name> *</type></decl>
+
+		<decl><type><name>int</name> *</type><name>element</name> =<init> 
+			<expr>&amp;<name><name>seq</name><index>[<expr>0</expr>]</index>
+			</name></expr></init></decl>
 	</a:documentation>
 	<define name="declaration">
 		<element name="decl">
@@ -125,6 +141,8 @@
 				  	   <text/>
 				  	</element>
 				  </optional>
+				  <!-- Pointer, *  -->
+				  <optional><text/></optional> 
 			</element>
 			<zeroOrMore>
 				<optional><text/></optional>
@@ -147,7 +165,7 @@
 								 	  <text/>
 								 </element>
 							</element>
-							<text/>
+							<optional><text/></optional>
 							</optional>
 						</element>
 					 </optional>
@@ -171,9 +189,12 @@
 								 <element name="index">
 								 	  <text/>
 									  <element name="expr">
-									  	   <element name="name">
+									  	   <choice>
+											<text/>
+											<element name="name">
 									  	   	    <text/>
-										   </element>
+										   	</element>
+										   </choice>
 									  </element>
 									  <text/>
 								 </element>
