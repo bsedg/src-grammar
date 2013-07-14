@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:cpp="http://www.sdml.info/srcML/cpp" language="C++" filename="complete-11.cpp"><comment type="block">/*
+    complete-11.cpp
+    Binary Search and Selection Sort
+ */</comment>
+
+<cpp:include>#<cpp:directive>include</cpp:directive> <cpp:file>&lt;iostream&gt;</cpp:file></cpp:include>
+<using>using namespace <name>std</name>;</using>
+
+<comment type="line">// constant value to use throughout the program</comment>
+<decl_stmt><decl><type><name>const</name> <name>int</name></type> <name>SIZEOFARRAYS</name> =<init> <expr>10</expr></init></decl>;</decl_stmt>
+
+<comment type="block">/*
+  Binary Search
+
+  returns the integer value of the location where the value was
+  found.
+
+  if not found, the function returns -1
+ */</comment>
+<function><type><name>int</name></type> <name>binarySearch</name><parameter_list>(<param><decl><type><name>int</name></type> <name><name>ar</name><index>[]</index></name></decl></param>, <param><decl><type><name>int</name></type> <name>valueSearchedFor</name></decl></param>)</parameter_list> <block>{
+	<decl_stmt><decl><type><name>int</name></type> <name>firstIndex</name> =<init> <expr>0</expr></init></decl>;</decl_stmt>
+	<decl_stmt><decl><type><name>int</name></type> <name>lastIndex</name> =<init> <expr>(<name>SIZEOFARRAYS</name> -1)</expr></init></decl>;</decl_stmt>
+	<decl_stmt><decl><type><name>bool</name></type> <name>found</name> =<init> <expr>false</expr></init></decl>;</decl_stmt>
+	<decl_stmt><decl><type><name>int</name></type> <name>position</name> =<init> <expr>-1</expr></init></decl>;</decl_stmt>
+	<while>while <condition>(<expr><name>found</name> != true &amp;&amp; <name>firstIndex</name> &lt;= <name>lastIndex</name></expr>)</condition> <block>{
+  		<decl_stmt><decl><type><name>int</name></type> <name>middle</name> =<init> <expr>((<name>firstIndex</name> + <name>lastIndex</name>) / 2)</expr></init></decl>;</decl_stmt>
+   		<if>if <condition>(<expr><name><name>ar</name><index>[<expr><name>middle</name></expr>]</index></name> == <name>valueSearchedFor</name></expr>)</condition><then> <block>{
+		  <expr_stmt><expr><name>position</name> = <name>middle</name></expr>;</expr_stmt>
+		  <expr_stmt><expr><name>found</name> = true</expr>;</expr_stmt>
+		}</block></then>
+		<else>else <if>if <condition>(<expr><name><name>ar</name><index>[<expr><name>middle</name></expr>]</index></name> &lt;<name>valueSearchedFor</name></expr>)</condition><then> <block>{
+		  <expr_stmt><expr><name>firstIndex</name> = (<name>middle</name> + 1)</expr>;</expr_stmt>
+		}</block></then>
+		<else>else <block>{
+		  <expr_stmt><expr><name>lastIndex</name> = (<name>middle</name> - 1)</expr>;</expr_stmt>
+		}</block></else></if></else></if>
+	}</block></while>
+	<return>return <expr><name>position</name></expr>;</return>
+}</block></function>
+
+
+<comment type="block">/*
+  Selection Sort
+
+  given the array, sort in place using pseudocode
+  provided in the instructions
+ */</comment>
+<function><type><name>void</name></type> <name>selectionSort</name><parameter_list>(<param><decl><type><name>int</name></type> <name><name>values</name><index>[]</index></name></decl></param>)</parameter_list> <block>{
+<for>for (<init><decl><type><name>int</name></type> <name>startScan</name> =<init> <expr>0</expr></init></decl>;</init> <condition><expr><name>startScan</name> &lt; (<name>SIZEOFARRAYS</name> -1)</expr>;</condition> <incr><expr><name>startScan</name>++</expr></incr>) <block>{
+	<decl_stmt><decl><type><name>int</name></type> <name>index</name> =<init> <expr><name>startScan</name></expr></init></decl>;</decl_stmt>
+	<decl_stmt><decl><type><name>int</name></type> <name>maxIndex</name> =<init> <expr><name>startScan</name></expr></init></decl>;</decl_stmt>
+	<decl_stmt><decl><type><name>int</name></type> <name>maxValue</name> =<init> <expr><name><name>values</name><index>[<expr><name>startScan</name></expr>]</index></name></expr></init></decl>;</decl_stmt>
+	<for>for (<init><decl><type><name>int</name></type> <name>index</name> =<init> <expr>(<name>startScan</name> +1)</expr></init></decl>;</init> <condition><expr><name>index</name> &lt; <name>SIZEOFARRAYS</name></expr>;</condition> <incr><expr><name>index</name>++</expr></incr>)<block>{
+	  <if>if <condition>(<expr><name><name>values</name><index>[<expr><name>index</name></expr>]</index></name> &gt; <name>maxValue</name></expr>)</condition><then> <block>{
+		<expr_stmt><expr><name>maxValue</name> = <name><name>values</name><index>[<expr><name>index</name></expr>]</index></name></expr>;</expr_stmt>
+		<expr_stmt><expr><name>maxIndex</name> = <name>index</name></expr>;</expr_stmt>
+	  }</block></then></if>
+	}</block></for>
+        <expr_stmt><expr><name><name>values</name><index>[<expr><name>maxIndex</name></expr>]</index></name> = <name><name>values</name><index>[<expr><name>startScan</name></expr>]</index></name></expr>;</expr_stmt>
+	<expr_stmt><expr><name><name>values</name><index>[<expr><name>startScan</name></expr>]</index></name> = <name>maxValue</name></expr>;</expr_stmt>
+    }</block></for>
+}</block></function>
+
+<comment type="line">// Do Not Change the main function</comment>
+<function><type><name>int</name></type> <name>main</name><parameter_list>()</parameter_list> <block>{
+
+  <decl_stmt><decl><type><name>int</name></type> <name><name>values</name><index>[]</index></name> =<init> <expr><block>{<expr>10</expr>, <expr>20</expr>, <expr>30</expr>, <expr>40</expr>, <expr>50</expr>, <expr>60</expr>, <expr>70</expr>, <expr>80</expr>, <expr>90</expr>, <expr>100</expr>}</block></expr></init></decl>;</decl_stmt>
+  <decl_stmt><decl><type><name>int</name></type> <name><name>largeValues</name><index>[]</index></name> =<init> <expr><block>{<expr>2200</expr>, <expr>356</expr>, <expr>12121</expr>, <expr>44</expr>, <expr>73</expr>, <expr>8300</expr>, <expr>31812</expr>, <expr>1</expr>, <expr>42</expr>, <expr>3</expr>}</block></expr></init></decl>;</decl_stmt>
+  <decl_stmt><decl><type><name>int</name></type> <name><name>squareValues</name><index>[]</index></name> =<init> <expr><block>{<expr>36</expr>, <expr>100</expr>, <expr>16</expr>, <expr>81</expr>, <expr>121</expr>, <expr>9</expr>, <expr>4</expr>, <expr>64</expr>, <expr>1</expr>, <expr>25</expr>}</block></expr></init></decl>;</decl_stmt>
+
+  <expr_stmt><expr><name>cout</name> &lt;&lt; "------     Section 1     ------\n"</expr>;</expr_stmt>
+
+  <comment type="line">// testing Binary Search</comment>
+  <decl_stmt><decl><type><name>int</name></type> <name>result</name> =<init> <expr><call><name>binarySearch</name><argument_list>(<argument><expr><name>values</name></expr></argument>, <argument><expr>20</expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+  <if>if <condition>(<expr><name>result</name> == 1</expr>)</condition><then> <block>{
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Section 1: Test Case 1 of 3 - pass\n"</expr>;</expr_stmt>
+  }</block></then> <else>else <block>{
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Section 1: Test Case 1 of 3 - fail\n"</expr>;</expr_stmt>
+  }</block></else></if>
+
+  <expr_stmt><expr><name>result</name> = <call><name>binarySearch</name><argument_list>(<argument><expr><name>values</name></expr></argument>, <argument><expr>12</expr></argument>)</argument_list></call></expr>;</expr_stmt>
+  <if>if <condition>(<expr><name>result</name> != -1</expr>)</condition><then> <block>{
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Section 1: Test Case 2 of 3 - fail\n"</expr>;</expr_stmt>
+  }</block></then> <else>else <block>{
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Section 1: Test Case 2 of 3 - pass\n"</expr>;</expr_stmt>
+  }</block></else></if>
+
+  <expr_stmt><expr><name>result</name> = <call><name>binarySearch</name><argument_list>(<argument><expr><name>values</name></expr></argument>, <argument><expr>100</expr></argument>)</argument_list></call></expr>;</expr_stmt>
+  <if>if <condition>(<expr><name>result</name> != 9</expr>)</condition><then> <block>{
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Section 1: Test Case 3 of 3 - fail\n"</expr>;</expr_stmt>
+  }</block></then> <else>else <block>{
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Section 1: Test Case 3 of 3 - pass\n"</expr>;</expr_stmt>
+  }</block></else></if>
+
+  <expr_stmt><expr><name>cout</name> &lt;&lt; "------     Section 2     ------\n"</expr>;</expr_stmt>
+
+  <comment type="line">// testing selection sort</comment>
+  <expr_stmt><expr><call><name>selectionSort</name><argument_list>(<argument><expr><name>values</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+  <expr_stmt><expr><call><name>selectionSort</name><argument_list>(<argument><expr><name>largeValues</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+  <expr_stmt><expr><call><name>selectionSort</name><argument_list>(<argument><expr><name>squareValues</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+  <if>if <condition>(<expr><name><name>values</name><index>[<expr>0</expr>]</index></name> == 100</expr>)</condition><then> <block>{
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Section 2: Test Case 1 of 6 - pass\n"</expr>;</expr_stmt>
+  }</block></then> <else>else <block>{
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Section 2: Test Case 1 of 6 - fail\n"</expr>;</expr_stmt>
+  }</block></else></if>
+
+  <if>if <condition>(<expr><name><name>values</name><index>[<expr>9</expr>]</index></name> == 10</expr>)</condition><then> <block>{
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Section 2: Test Case 2 of 6 - pass\n"</expr>;</expr_stmt>
+  }</block></then> <else>else <block>{
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Section 2: Test Case 2 of 6 - fail\n"</expr>;</expr_stmt>
+  }</block></else></if>
+
+  <if>if <condition>(<expr><name><name>largeValues</name><index>[<expr>0</expr>]</index></name> == 31812</expr>)</condition><then> <block>{
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Section 2: Test Case 3 of 6 - pass\n"</expr>;</expr_stmt>
+  }</block></then> <else>else <block>{
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Section 2: Test Case 3 of 6 - fail\n"</expr>;</expr_stmt>
+  }</block></else></if>
+
+  <if>if <condition>(<expr><name><name>largeValues</name><index>[<expr>9</expr>]</index></name> == 1</expr>)</condition><then> <block>{
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Section 2: Test Case 4 of 6 - pass\n"</expr>;</expr_stmt>
+  }</block></then> <else>else <block>{
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Section 2: Test Case 4 of 6 - fail\n"</expr>;</expr_stmt>
+  }</block></else></if>
+
+  <if>if <condition>(<expr><name><name>squareValues</name><index>[<expr>0</expr>]</index></name> == 121</expr>)</condition><then> <block>{
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Section 2: Test Case 5 of 6 - pass\n"</expr>;</expr_stmt>
+  }</block></then> <else>else <block>{
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Section 2: Test Case 5 of 6 - fail\n"</expr>;</expr_stmt>
+  }</block></else></if>
+	
+  <if>if <condition>(<expr><name><name>squareValues</name><index>[<expr>9</expr>]</index></name> == 1</expr>)</condition><then> <block>{
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Section 2: Test Case 6 of 6 - pass\n"</expr>;</expr_stmt>
+  }</block></then> <else>else <block>{
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Section 2: Test Case 6 of 6 - fail\n"</expr>;</expr_stmt>
+  }</block></else></if>
+
+  <return>return <expr>0</expr>;</return>
+}</block></function>
+
+</unit>

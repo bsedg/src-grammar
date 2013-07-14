@@ -72,6 +72,17 @@
 					<element name="name">
 						 <text/>
 					</element>
+					<!-- <name><name>people</name><index>[<expr><name>i</name> -->
+					<element name="name">
+						 <element name="name">
+						 	  <text/>
+						 </element>
+						 <element name="index">
+						 	  <text/>
+							  <ref name="expression"/>
+						 </element>
+						 <text/>
+					</element>
 				</choice>
 			</zeroOrMore>
 		</element>
@@ -98,6 +109,9 @@
 			       <expr>7.7</expr>, <expr>8.8</expr>, <expr>9.9</expr>}</block></expr>
 			</init>
 		</decl>
+		
+		<decl><type><name>int</name></type> <name><name>ar</name>
+			<index>[]</index><index>[<expr>4</expr>]</index></name></decl>
 	</a:documentation>
 	<define name="declaration">
 		<element name="decl">
@@ -108,8 +122,8 @@
 				  <text/>
 				  <optional>
 					<element name="name">
-						 <text/>
-					</element>
+				  	   <text/>
+				  	</element>
 				  </optional>
 			</element>
 			<zeroOrMore>
