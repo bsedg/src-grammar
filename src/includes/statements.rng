@@ -135,7 +135,7 @@
 			 	  <element name="name">
 				  	   <text/>
 				  </element>
-				  <text/>
+				  <optional><text/></optional>
 				  <optional>
 					<element name="name">
 				  	   <text/>
@@ -154,21 +154,25 @@
 							 <text/>
 						</element>
 					 </optional>
-					 <optional>
+					 <!-- More than 1 for multidimensional arrays -->
+					 <zeroOrMore>
 						<!-- <index>[<expr><name>ARRAYLEN</name></expr>]</index> -->
 						<element name="index">
 							<text/>
 							<!-- could just be a literal -->
 							<optional>
 							<element name="expr">
-								 <element name="name">
-								 	  <text/>
-								 </element>
+								 <choice>
+									<text/>
+									<element name="name">
+								 		 <text/>
+								 	</element>
+								 </choice>
 							</element>
 							<optional><text/></optional>
 							</optional>
 						</element>
-					 </optional>
+					 </zeroOrMore>
 				</element>
 				<text/>
 				<optional>

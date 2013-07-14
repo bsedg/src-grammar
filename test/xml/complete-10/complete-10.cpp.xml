@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:cpp="http://www.sdml.info/srcML/cpp" language="C++" filename="010/students/uanet/Labs/Lab10/MoreArrays.cpp"> <comment type="block">/********************************************************************
+  * Lab 10 : MoreArrays.cpp
+  *
+  * Author: Student Name
+  *         uanet@zips.uakron.edu
+  *
+  * Purpose: Demonstrate array concepts
+  *
+  ********************************************************************/</comment>
+
+<cpp:include>#<cpp:directive>include</cpp:directive> <cpp:file>&lt;iostream&gt;</cpp:file></cpp:include>
+<cpp:include>#<cpp:directive>include</cpp:directive> <cpp:file>&lt;string&gt;</cpp:file></cpp:include>
+<cpp:include>#<cpp:directive>include</cpp:directive> <cpp:file>&lt;iomanip&gt;</cpp:file></cpp:include>
+<using>using namespace <name>std</name>;</using>
+
+<comment type="line">// Prototype</comment>
+<function_decl><type><name>void</name></type> <name>print_array</name><parameter_list>(<param><decl><type><name>int</name>[]</type></decl></param>, <param><decl><type><name>int</name></type></decl></param>)</parameter_list>;</function_decl>
+<function_decl><type><name>void</name></type> <name>input_array</name><parameter_list>(<param><decl><type><name>int</name>[]</type></decl></param>, <param><decl><type><name>int</name></type></decl></param>)</parameter_list>;</function_decl>
+<function_decl><type><name>bool</name></type> <name>arrays_equal</name><parameter_list>(<param><decl><type><name>int</name>[]</type></decl></param>, <param><decl><type><name>int</name>[]</type></decl></param>, <param><decl><type><name>int</name></type></decl></param>)</parameter_list>;</function_decl>
+
+<comment type="block">/* implement for part 0 */</comment>
+<function><type><name>void</name></type> <name>print_array</name><parameter_list>(<param><decl><type><name>int</name></type> <name><name>arr</name><index>[]</index></name></decl></param>, <param><decl><type><name>int</name></type> <name>len</name></decl></param>)</parameter_list> <block>{
+  <for>for (<init><decl><type><name>int</name></type> <name>i</name> =<init> <expr>0</expr></init></decl>;</init> <condition><expr><name>i</name> &lt; <name>len</name></expr>;</condition> <incr><expr><name>i</name>++</expr></incr>) <block>{
+    <expr_stmt><expr><name>cout</name>&lt;&lt; <name><name>arr</name><index>[<expr><name>i</name></expr>]</index></name>&lt;&lt;" "</expr>;</expr_stmt>         
+  }</block></for>
+  <expr_stmt><expr><name>cout</name>&lt;&lt;<name>endl</name></expr>;</expr_stmt>
+}</block></function>
+
+
+<comment type="block">/* implement for part 1 */</comment>
+<function><type><name>void</name></type> <name>input_array</name><parameter_list>(<param><decl><type><name>int</name></type> <name><name>input</name><index>[]</index></name></decl></param>, <param><decl><type><name>int</name></type> <name>ARRAYLEN</name></decl></param>)</parameter_list> <block>{
+    <expr_stmt><expr><name>cout</name>&lt;&lt;"Please enter the value for the array."&lt;&lt;<name>endl</name></expr>;</expr_stmt>
+    <for>for (<init><decl><type><name>int</name></type> <name>i</name> =<init> <expr>0</expr></init></decl>;</init> <condition><expr><name>i</name> &lt; <name>ARRAYLEN</name></expr>;</condition> <incr><expr><name>i</name>++</expr></incr> ) <block>{
+       <expr_stmt><expr><name>cin</name> &gt;&gt; <name><name>input</name><index>[<expr><name>i</name></expr>]</index></name></expr>;</expr_stmt>
+    }</block></for>
+}</block></function>
+
+<comment type="block">/* implement for part 2 */</comment>
+<function><type><name>bool</name></type> <name>arrays_equal</name><parameter_list>(<param><decl><type><name>int</name></type> <name><name>numbers</name><index>[]</index></name></decl></param>, <param><decl><type><name>int</name></type> <name><name>inputs</name><index>[]</index></name></decl></param>, <param><decl><type><name>int</name></type> <name>ARRAYLEN</name></decl></param>)</parameter_list> <block>{
+    <decl_stmt><decl><type><name>bool</name></type> <name>equal</name></decl>;</decl_stmt>
+    <for>for (<init><decl><type><name>int</name></type> <name>i</name> =<init> <expr>0</expr></init></decl>;</init> <condition><expr><name>i</name> &lt; <name>ARRAYLEN</name></expr>;</condition> <incr><expr><name>i</name>++</expr></incr>) <block>{
+      <if>if<condition>(<expr><name><name>numbers</name><index>[<expr><name>i</name></expr>]</index></name> == <name><name>inputs</name><index>[<expr><name>i</name></expr>]</index></name></expr>)</condition><then> <block>{
+	<expr_stmt><expr><name>equal</name>= true</expr>;</expr_stmt>
+      }</block></then> <else>else <block>{
+	<expr_stmt><expr><name>equal</name> = false</expr>;</expr_stmt>
+      }</block></else></if>
+    }</block></for>
+    <return>return <expr><name>equal</name></expr>;</return>
+}</block></function>
+
+<comment type="block">/* implement for part 3 */</comment>
+<function><type><name>void</name></type> <name>print_table</name><parameter_list>(<param><decl><type><name>string</name></type> <name><name>people</name><index>[]</index></name></decl></param>, <param><decl><type><name>int</name></type> <name><name>inputs</name><index>[]</index></name></decl></param>, <param><decl><type><name>int</name></type> <name>ARRAYLEN</name></decl></param>)</parameter_list> <block>{
+    <for>for (<init><decl><type><name>int</name></type> <name>i</name> =<init> <expr>0</expr></init></decl>;</init> <condition><expr><name>i</name> &lt; <name>ARRAYLEN</name></expr>;</condition> <incr><expr><name>i</name>++</expr></incr>) <block>{
+        <expr_stmt><expr><name>cout</name>&lt;&lt; <call><name>setw</name><argument_list>(<argument><expr>10</expr></argument>)</argument_list></call> &lt;&lt; <name>left</name> &lt;&lt; <name><name>people</name><index>[<expr><name>i</name></expr>]</index></name> &lt;&lt; <call><name>setw</name><argument_list>(<argument><expr>10</expr></argument>)</argument_list></call> &lt;&lt; <name>right</name> &lt;&lt; <name><name>inputs</name><index>[<expr><name>i</name></expr>]</index></name> &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+    }</block></for>
+}</block></function>
+
+<comment type="block">/* implement for part 4 */</comment>
+<function><type><name>void</name></type> <name>print_array</name><parameter_list>(<param><decl><type><name>int</name></type> <name><name>ar</name><index>[]</index><index>[<expr>4</expr>]</index></name></decl></param>, <param><decl><type><name>int</name></type> <name>h</name></decl></param>, <param><decl><type><name>int</name></type> <name>w</name></decl></param>)</parameter_list> <block>{
+    <for>for(<init><decl><type><name>int</name></type> <name>i</name> =<init> <expr>0</expr></init></decl>;</init> <condition><expr><name>i</name> &lt; <name>h</name></expr>;</condition> <incr><expr><name>i</name>++</expr></incr>) <block>{
+        <for>for(<init><decl><type><name>int</name></type> <name>j</name> =<init> <expr>0</expr></init></decl>;</init> <condition><expr><name>j</name> &lt; <name>w</name></expr>;</condition> <incr><expr><name>j</name>++</expr></incr>) <block>{
+           <expr_stmt><expr><name>cout</name>&lt;&lt; <name><name>ar</name><index>[<expr><name>i</name></expr>]</index><index>[<expr><name>j</name></expr>]</index></name> &lt;&lt; " "</expr>;</expr_stmt>
+        }</block></for>
+        <expr_stmt><expr><name>cout</name> &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+    }</block></for>
+}</block></function>
+
+<function><type><name>int</name></type> <name>main</name><parameter_list>()</parameter_list> <block>{
+    <decl_stmt><decl><type><name>const</name> <name>int</name></type> <name>ARRAYLEN</name> =<init> <expr>5</expr></init></decl>;</decl_stmt>
+    <decl_stmt><decl><type><name>int</name></type> <name><name>numbers</name><index>[<expr><name>ARRAYLEN</name></expr>]</index></name> =<init> <expr><block>{<expr>1</expr>,<expr>4</expr>,<expr>9</expr>,<expr>16</expr>,<expr>25</expr>}</block></expr></init></decl>;</decl_stmt>
+    <decl_stmt><decl><type><name>int</name></type> <name><name>inputs</name><index>[<expr><name>ARRAYLEN</name></expr>]</index></name></decl>;</decl_stmt>
+    <decl_stmt><decl><type><name>string</name></type> <name><name>people</name><index>[]</index></name> =<init> <expr><block>{<expr>"Big Bird"</expr>,<expr>"Bert"</expr>,<expr>"Ernie"</expr>,<expr>"Grover"</expr>,<expr>"Oscar"</expr>}</block></expr></init></decl>;</decl_stmt>
+
+    <expr_stmt><expr><call><name>print_array</name><argument_list>(<argument><expr><name>numbers</name></expr></argument>, <argument><expr><name>ARRAYLEN</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "---- Part 1: passing arrays ----\n"</expr>;</expr_stmt>
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "Enter " &lt;&lt; <name>ARRAYLEN</name> &lt;&lt; " integers:"</expr>;</expr_stmt>
+    <expr_stmt><expr><call><name>input_array</name><argument_list>(<argument><expr><name>inputs</name></expr></argument>, <argument><expr><name>ARRAYLEN</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    <expr_stmt><expr><call><name>print_array</name><argument_list>(<argument><expr><name>inputs</name></expr></argument>, <argument><expr><name>ARRAYLEN</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    
+
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "---- Part 2: comparison ----\n"</expr>;</expr_stmt>
+    <if>if<condition>(<expr><call><name>arrays_equal</name><argument_list>(<argument><expr><name>numbers</name></expr></argument>,<argument><expr><name>inputs</name></expr></argument>,<argument><expr><name>ARRAYLEN</name></expr></argument>)</argument_list></call></expr>)</condition><then> <block>{
+        <expr_stmt><expr><name>cout</name> &lt;&lt; "Arrays are equal" &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+    }</block></then>
+    <else>else <block>{
+        <expr_stmt><expr><name>cout</name> &lt;&lt; "Arrays are not equal" &lt;&lt; <name>endl</name></expr>;</expr_stmt>
+    }</block></else></if>
+
+
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "---- Part 3: parallel arrays ----\n"</expr>;</expr_stmt>
+    <expr_stmt><expr><call><name>print_table</name><argument_list>(<argument><expr><name>people</name></expr></argument>, <argument><expr><name>inputs</name></expr></argument>, <argument><expr><name>ARRAYLEN</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+    <expr_stmt><expr><name>cout</name> &lt;&lt; "---- Part 4: 2D arrays ----\n"</expr>;</expr_stmt>
+    <decl_stmt><decl><type><name>int</name></type> <name><name>matrix</name><index>[<expr>3</expr>]</index><index>[<expr>4</expr>]</index></name> =<init> <expr><block>{<expr>1</expr>,<expr>2</expr>,<expr>3</expr>,<expr>4</expr>,<expr>5</expr>,<expr>6</expr>,<expr>7</expr>,<expr>8</expr>,<expr>9</expr>,<expr>10</expr>,<expr>11</expr>,<expr>12</expr>}</block></expr></init></decl>;</decl_stmt>
+    <expr_stmt><expr><call><name>print_array</name><argument_list>(<argument><expr><name>matrix</name></expr></argument>, <argument><expr>3</expr></argument>, <argument><expr>4</expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+    <return>return <expr>0</expr>;</return>
+}</block></function>
+
+</unit>
